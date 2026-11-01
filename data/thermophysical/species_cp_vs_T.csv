@@ -1,0 +1,164 @@
+species,phase,T_K,Cp_J_molK,Cp_J_kgK,S_J_molK,H_minus_H298_kJ_mol,source,source_url,note
+H2O,g,298.15,33.59,1864.6,188.834,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-064.html,
+H2O,g,400.0,34.262,1901.9,198.788,3.452,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-064.html,
+H2O,g,500.0,35.226,1955.4,206.534,6.925,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-064.html,
+H2O,g,600.0,36.325,2016.4,213.052,10.501,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-064.html,
+H2O,g,800.0,38.721,2149.4,223.825,18.002,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-064.html,
+H2O,g,1000.0,41.268,2290.8,232.738,26.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-064.html,
+H2O,g,1200.0,43.768,2429.5,240.485,34.506,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-064.html,
+CO2,g,298.15,37.129,843.6,213.795,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-095.html,
+CO2,g,400.0,41.325,939.0,225.314,4.003,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-095.html,
+CO2,g,500.0,44.627,1014.0,234.901,8.305,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-095.html,
+CO2,g,600.0,47.321,1075.2,243.283,12.907,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-095.html,
+CO2,g,800.0,51.434,1168.7,257.494,22.806,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-095.html,
+CO2,g,1000.0,54.308,1234.0,269.299,33.397,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-095.html,
+CO2,g,1200.0,56.342,1280.2,279.39,44.473,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-095.html,
+O2,g,298.15,29.376,918.0,205.147,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-029.html,
+O2,g,400.0,30.106,940.8,213.871,3.025,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-029.html,
+O2,g,500.0,31.091,971.6,220.693,6.084,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-029.html,
+O2,g,600.0,32.09,1002.8,226.451,9.244,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-029.html,
+O2,g,800.0,33.733,1054.2,235.921,15.835,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-029.html,
+O2,g,1000.0,34.87,1089.7,243.578,22.703,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-029.html,
+O2,g,1200.0,35.667,1114.6,250.01,29.761,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-029.html,
+H2,g,298.15,28.836,14303.6,130.68,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-050.html,
+H2,g,400.0,29.181,14474.7,139.216,2.959,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-050.html,
+H2,g,500.0,29.26,14513.9,145.737,5.882,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-050.html,
+H2,g,600.0,29.327,14547.1,151.077,8.811,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-050.html,
+H2,g,800.0,29.624,14694.4,159.548,14.702,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-050.html,
+H2,g,1000.0,30.205,14982.6,166.216,20.68,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-050.html,
+H2,g,1200.0,30.992,15373.0,171.79,26.797,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-050.html,
+N2,g,298.15,29.124,1039.6,191.609,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/N-023.html,
+N2,g,400.0,29.249,1044.1,200.181,2.971,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/N-023.html,
+N2,g,500.0,29.58,1055.9,206.739,5.911,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/N-023.html,
+N2,g,600.0,30.11,1074.8,212.176,8.894,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/N-023.html,
+N2,g,800.0,31.433,1122.0,221.017,15.046,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/N-023.html,
+N2,g,1000.0,32.697,1167.2,228.17,21.463,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/N-023.html,
+N2,g,1200.0,33.723,1203.8,234.226,28.109,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/N-023.html,
+NH3,g,298.15,35.652,2093.4,192.774,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-083.html,
+NH3,g,400.0,38.716,2273.3,203.663,3.781,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-083.html,
+NH3,g,500.0,42.048,2468.9,212.659,7.819,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-083.html,
+NH3,g,600.0,45.293,2659.4,220.615,12.188,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-083.html,
+NH3,g,800.0,51.235,3008.3,234.476,21.853,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-083.html,
+NH3,g,1000.0,56.491,3317.0,246.486,32.637,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-083.html,
+NH3,g,1200.0,61.048,3584.5,257.199,44.402,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-083.html,
+CH4,g,298.15,35.639,2221.5,186.251,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-067.html,
+CH4,g,400.0,40.5,2524.5,197.356,3.861,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-067.html,
+CH4,g,500.0,46.342,2888.6,207.014,8.2,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-067.html,
+CH4,g,600.0,52.227,3255.4,215.987,13.13,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-067.html,
+CH4,g,800.0,62.932,3922.7,232.518,24.675,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-067.html,
+CH4,g,1000.0,71.795,4475.2,247.549,38.179,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-067.html,
+CH4,g,1200.0,78.833,4913.9,261.287,53.27,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-067.html,
+CO,g,298.15,29.142,1040.4,197.653,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-093.html,
+CO,g,400.0,29.342,1047.6,206.238,2.976,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-093.html,
+CO,g,500.0,29.794,1063.7,212.831,5.931,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-093.html,
+CO,g,600.0,30.443,1086.9,218.319,8.942,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-093.html,
+CO,g,800.0,31.899,1138.8,227.277,15.177,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-093.html,
+CO,g,1000.0,33.183,1184.7,234.538,21.69,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-093.html,
+CO,g,1200.0,34.175,1220.1,240.679,28.43,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-093.html,
+SO2,g,298.15,39.878,622.5,248.212,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-034.html,
+SO2,g,400.0,43.493,678.9,260.448,4.25,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-034.html,
+SO2,g,500.0,46.576,727.0,270.495,8.758,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-034.html,
+SO2,g,600.0,49.049,765.6,279.214,13.544,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-034.html,
+SO2,g,800.0,52.434,818.4,293.829,23.721,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-034.html,
+SO2,g,1000.0,54.484,850.4,305.767,34.428,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-034.html,
+SO2,g,1200.0,55.794,870.9,315.824,45.464,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-034.html,
+SO3,g,298.15,50.661,632.7,256.769,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-058.html,
+SO3,g,400.0,57.672,720.3,272.674,5.53,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-058.html,
+SO3,g,500.0,63.1,788.1,286.152,11.58,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-058.html,
+SO3,g,600.0,67.255,840.0,298.041,18.107,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-058.html,
+SO3,g,800.0,72.761,908.8,318.217,32.16,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-058.html,
+SO3,g,1000.0,75.968,948.8,334.828,47.06,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-058.html,
+SO3,g,1200.0,77.937,973.4,348.866,62.466,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-058.html,
+CaO,s,298.15,42.12,751.1,38.212,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-027.html,melting at 3200 K
+CaO,s,400.0,46.626,831.5,51.3,4.547,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-027.html,melting at 3200 K
+CaO,s,500.0,48.982,873.5,61.98,9.338,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-027.html,melting at 3200 K
+CaO,s,600.0,50.48,900.2,71.052,14.315,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-027.html,melting at 3200 K
+CaO,s,800.0,52.4,934.4,85.858,24.618,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-027.html,melting at 3200 K
+CaO,s,1000.0,53.735,958.2,97.7,35.237,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-027.html,melting at 3200 K
+CaO,s,1200.0,54.831,977.8,107.596,46.096,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-027.html,melting at 3200 K
+Ca(OH)2,s,298.15,87.487,1180.8,83.387,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-020.html,
+Ca(OH)2,s,400.0,98.408,1328.2,110.82,9.535,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-020.html,
+Ca(OH)2,s,500.0,103.931,1402.7,133.431,19.678,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-020.html,
+Ca(OH)2,s,600.0,107.445,1450.1,152.696,30.249,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-020.html,
+Ca(OH)2,s,800.0,113.512,1532.0,184.479,52.375,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-020.html,
+Ca(OH)2,s,1000.0,117.989,1592.4,210.328,75.56,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-020.html,
+MgO,s,298.15,37.106,920.7,26.924,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-008.html,melting at 3105 K
+MgO,s,400.0,42.561,1056.0,38.678,4.087,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-008.html,melting at 3105 K
+MgO,s,500.0,45.544,1130.0,48.523,8.505,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-008.html,melting at 3105 K
+MgO,s,600.0,47.43,1176.8,57.006,13.16,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-008.html,melting at 3105 K
+MgO,s,800.0,49.74,1234.1,70.996,22.898,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-008.html,melting at 3105 K
+MgO,s,1000.0,51.208,1270.5,82.262,33.001,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-008.html,melting at 3105 K
+MgO,s,1200.0,52.325,1298.3,91.701,43.358,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-008.html,melting at 3105 K
+Mg(OH)2,s,298.15,77.249,1324.6,63.242,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-057.html,
+Mg(OH)2,s,400.0,91.705,1572.4,88.12,8.659,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-057.html,
+Mg(OH)2,s,500.0,99.617,1708.1,109.525,18.266,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-057.html,
+Mg(OH)2,s,600.0,104.441,1790.8,128.143,28.484,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-057.html,
+Mg(OH)2,s,800.0,110.579,1896.1,159.101,50.036,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-057.html,
+Mg(OH)2,s,1000.0,114.851,1969.3,184.254,72.597,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-057.html,
+MgCO3,s,298.15,76.21,903.9,65.854,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-079.html,
+MgCO3,s,400.0,89.855,1065.7,90.253,8.49,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-079.html,
+MgCO3,s,500.0,100.061,1186.8,111.423,17.996,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-079.html,
+MgCO3,s,600.0,109.035,1293.2,130.486,28.466,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-079.html,
+MgCO3,s,800.0,122.256,1450.0,163.771,51.669,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-079.html,
+MgCO3,s,1000.0,131.796,1563.2,192.163,77.152,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/C-079.html,
+SrO,s,298.15,45.409,438.2,55.522,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-013.html,melting at 2938 K
+SrO,s,500.0,50.534,487.7,80.376,9.748,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-013.html,melting at 2938 K
+SrO,s,600.0,52.049,502.3,89.728,14.88,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-013.html,melting at 2938 K
+SrO,s,800.0,54.3,524.0,105.026,25.526,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-013.html,melting at 2938 K
+SrO,s,1000.0,56.074,541.2,117.338,36.568,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-013.html,melting at 2938 K
+SrO,s,1200.0,57.639,556.3,127.702,47.941,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/O-013.html,melting at 2938 K
+BaO,s,298.15,47.279,308.3,72.069,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ba-034.html,melting at 2286 K
+BaO,s,400.0,49.898,325.4,86.347,4.955,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ba-034.html,melting at 2286 K
+BaO,s,500.0,51.785,337.7,97.694,10.044,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ba-034.html,melting at 2286 K
+BaO,s,600.0,53.22,347.1,107.267,15.296,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ba-034.html,melting at 2286 K
+BaO,s,800.0,55.405,361.3,122.892,26.169,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ba-034.html,melting at 2286 K
+BaO,s,1000.0,57.153,372.7,135.448,37.429,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ba-034.html,melting at 2286 K
+BaO,s,1200.0,58.706,382.9,146.007,49.018,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ba-034.html,melting at 2286 K
+Co3O4,s,298.15,123.051,511.0,114.286,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-015.html,
+Co3O4,s,400.0,142.666,592.5,153.657,13.694,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-015.html,
+Co3O4,s,500.0,152.85,634.8,186.59,28.471,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-015.html,
+Co3O4,s,600.0,162.808,676.1,215.325,44.247,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-015.html,
+Co3O4,s,800.0,185.272,769.4,265.161,79.001,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-015.html,
+Co3O4,s,1000.0,210.296,873.3,309.158,118.528,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-015.html,
+Co3O4,s,1200.0,236.727,983.1,349.821,163.214,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-015.html,
+CoO,s,298.15,55.279,737.7,52.993,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-013.html,
+CoO,s,400.0,52.932,706.4,68.698,5.439,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-013.html,
+CoO,s,500.0,53.932,719.8,80.628,10.788,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-013.html,
+CoO,s,600.0,54.312,724.8,90.497,16.201,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-013.html,
+CoO,s,800.0,54.819,731.6,106.18,27.107,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-013.html,
+CoO,s,1000.0,56.011,747.5,118.526,38.176,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-013.html,
+CoO,s,1200.0,57.915,772.9,128.897,49.559,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Co-013.html,
+CuO,s,298.15,42.246,531.1,42.594,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-015.html,
+CuO,s,400.0,46.806,588.4,55.723,4.562,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-015.html,
+CuO,s,500.0,49.261,619.3,66.451,9.374,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-015.html,
+CuO,s,600.0,50.935,640.3,75.588,14.388,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-015.html,
+CuO,s,800.0,53.349,670.7,90.591,24.829,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-015.html,
+CuO,s,1000.0,55.262,694.7,102.706,35.695,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-015.html,
+CuO,s,1200.0,56.978,716.3,112.935,46.921,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-015.html,
+Cu2O,s,298.15,62.543,437.1,92.36,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-019.html,melting at 1516.7 K
+Cu2O,s,400.0,67.688,473.0,111.531,6.657,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-019.html,melting at 1516.7 K
+Cu2O,s,500.0,70.922,495.6,127.0,13.596,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-019.html,melting at 1516.7 K
+Cu2O,s,600.0,73.448,513.3,140.161,20.818,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-019.html,melting at 1516.7 K
+Cu2O,s,800.0,77.666,542.8,161.886,35.941,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-019.html,melting at 1516.7 K
+Cu2O,s,1000.0,81.245,567.8,179.606,51.837,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-019.html,melting at 1516.7 K
+Cu2O,s,1200.0,86.11,601.8,194.812,68.532,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Cu-019.html,melting at 1516.7 K
+Mg,s,298.15,24.869,1023.2,32.671,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-002.html,table notes crystal<->liquid at 923 K; 1000 and 1200 K rows lie above the melting point
+Mg,s,400.0,26.144,1075.7,40.167,2.601,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-002.html,table notes crystal<->liquid at 923 K; 1000 and 1200 K rows lie above the melting point
+Mg,s,500.0,27.171,1117.9,46.113,5.268,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-002.html,table notes crystal<->liquid at 923 K; 1000 and 1200 K rows lie above the melting point
+Mg,s,600.0,28.184,1159.6,51.156,8.035,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-002.html,table notes crystal<->liquid at 923 K; 1000 and 1200 K rows lie above the melting point
+Mg,s,800.0,30.507,1255.2,59.569,13.895,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-002.html,table notes crystal<->liquid at 923 K; 1000 and 1200 K rows lie above the melting point
+Mg,s,1000.0,33.46,1376.7,66.681,20.28,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-002.html,table notes crystal<->liquid at 923 K; 1000 and 1200 K rows lie above the melting point
+Mg,s,1200.0,37.164,1529.1,73.097,27.33,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Mg-002.html,table notes crystal<->liquid at 923 K; 1000 and 1200 K rows lie above the melting point
+MgH2,s,298.15,35.334,1342.4,31.091,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-056.html,
+MgH2,s,400.0,43.304,1645.2,42.62,4.015,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-056.html,
+MgH2,s,500.0,49.999,1899.6,53.029,8.693,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-056.html,
+MgH2,s,600.0,55.229,2098.3,62.621,13.962,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-056.html,
+MgH2,s,800.0,63.095,2397.1,79.659,25.844,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-056.html,
+MgH2,s,1000.0,67.99,2583.1,94.315,38.998,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-056.html,
+MgH2,s,1200.0,70.751,2688.0,106.969,52.888,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/H-056.html,
+Ca,s,298.15,25.929,647.0,41.588,0.0,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-002.html,alpha<->beta transition at 716 K; 800 and 1000 K rows above it
+Ca,s,400.0,26.868,670.4,49.322,2.683,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-002.html,alpha<->beta transition at 716 K; 800 and 1000 K rows above it
+Ca,s,500.0,28.487,710.8,55.487,5.448,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-002.html,alpha<->beta transition at 716 K; 800 and 1000 K rows above it
+Ca,s,600.0,30.382,758.1,60.846,8.391,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-002.html,alpha<->beta transition at 716 K; 800 and 1000 K rows above it
+Ca,s,800.0,34.613,863.6,70.15,14.879,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-002.html,alpha<->beta transition at 716 K; 800 and 1000 K rows above it
+Ca,s,1000.0,39.026,973.8,78.348,22.243,NIST-JANAF 4th ed. (Chase 1998),https://janaf.nist.gov/tables/Ca-002.html,alpha<->beta transition at 716 K; 800 and 1000 K rows above it

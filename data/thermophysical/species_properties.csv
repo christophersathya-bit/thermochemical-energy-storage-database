@@ -1,0 +1,39 @@
+species,phase,molar_mass_g_mol,density_g_cm3,density_source,dHf_kJ_mol,S_J_molK,dHf_S_source,dHf_S_Cp_url,Cp298_J_molK,Cp298_J_kgK,Cp_source
+H2O,g,18.015,,,-241.826,188.834,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/H-064.html,33.59,1864.6,"NIST-JANAF (same table as dHf, S)"
+CO2,g,44.01,,,-393.522,213.795,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/C-095.html,37.129,843.6,"NIST-JANAF (same table as dHf, S)"
+O2,g,31.999,,,0.0,205.147,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/O-029.html,29.376,918.0,"NIST-JANAF (same table as dHf, S)"
+H2,g,2.016,,,0.0,130.68,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/H-050.html,28.836,14303.6,"NIST-JANAF (same table as dHf, S)"
+N2,g,28.014,,,0.0,191.609,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/N-023.html,29.124,1039.6,"NIST-JANAF (same table as dHf, S)"
+NH3,g,17.031,,,-45.898,192.774,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/H-083.html,35.652,2093.4,"NIST-JANAF (same table as dHf, S)"
+CH4,g,16.043,,,-74.873,186.251,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/C-067.html,35.639,2221.5,"NIST-JANAF (same table as dHf, S)"
+CO,g,28.01,,,-110.527,197.653,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/C-093.html,29.142,1040.4,"NIST-JANAF (same table as dHf, S)"
+SO2,g,64.066,,,-296.842,248.212,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/O-034.html,39.878,622.5,"NIST-JANAF (same table as dHf, S)"
+SO3,g,80.066,,,-395.765,256.769,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/O-058.html,50.661,632.7,"NIST-JANAF (same table as dHf, S)"
+CaO,s,56.077,3.34,CRC Handbook value - not yet re-fetched,-635.089,38.212,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Ca-027.html,42.12,751.1,"NIST-JANAF (same table as dHf, S)"
+Ca(OH)2,s,74.093,2.21,CRC Handbook value - not yet re-fetched,-986.085,83.387,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Ca-020.html,87.487,1180.8,"NIST-JANAF (same table as dHf, S)"
+CaCO3,s,100.087,2.71,CRC Handbook value - not yet re-fetched,-1207.6,91.7,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+MgO,s,40.304,3.58,CRC Handbook value - not yet re-fetched,-601.241,26.924,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Mg-008.html,37.106,920.7,"NIST-JANAF (same table as dHf, S)"
+Mg(OH)2,s,58.32,2.34,CRC Handbook value - not yet re-fetched,-924.664,63.242,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/H-057.html,77.249,1324.6,"NIST-JANAF (same table as dHf, S)"
+MgCO3,s,84.314,2.96,CRC Handbook value - not yet re-fetched,-1111.689,65.854,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/C-079.html,76.21,903.9,"NIST-JANAF (same table as dHf, S)"
+SrO,s,103.62,4.7,CRC Handbook value - not yet re-fetched,-592.036,55.522,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/O-013.html,45.409,438.2,"NIST-JANAF (same table as dHf, S)"
+SrCO3,s,147.63,3.5,CRC Handbook value - not yet re-fetched,-1220.1,97.1,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+BaO,s,153.33,5.72,CRC Handbook value - not yet re-fetched,-548.104,72.069,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Ba-034.html,47.279,308.3,"NIST-JANAF (same table as dHf, S)"
+BaCO3,s,197.34,4.29,CRC Handbook value - not yet re-fetched,-1216.3,112.1,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+Co3O4,s,240.8,6.11,CRC Handbook value - not yet re-fetched,-910.02,114.286,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Co-015.html,123.051,511.0,"NIST-JANAF (same table as dHf, S)"
+CoO,s,74.93,6.44,CRC Handbook value - not yet re-fetched,-237.735,52.993,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Co-013.html,55.279,737.7,"NIST-JANAF (same table as dHf, S)"
+Mn2O3,s,157.87,4.5,CRC Handbook value - not yet re-fetched,-959.0,110.5,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+Mn3O4,s,228.81,4.86,CRC Handbook value - not yet re-fetched,-1387.8,155.6,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+CuO,s,79.545,6.31,CRC Handbook value - not yet re-fetched,-156.063,42.594,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Cu-015.html,42.246,531.1,"NIST-JANAF (same table as dHf, S)"
+Cu2O,s,143.09,6.0,CRC Handbook value - not yet re-fetched,-170.707,92.36,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Cu-019.html,62.543,437.1,"NIST-JANAF (same table as dHf, S)"
+Mg,s,24.305,1.74,CRC Handbook value - not yet re-fetched,0.0,32.671,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Mg-002.html,24.869,1023.2,"NIST-JANAF (same table as dHf, S)"
+MgH2,s,26.321,1.45,CRC Handbook value - not yet re-fetched,-76.149,31.091,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/H-056.html,35.334,1342.4,"NIST-JANAF (same table as dHf, S)"
+Ca,s,40.078,1.55,CRC Handbook value - not yet re-fetched,0.0,41.588,"NIST-JANAF 4th ed. (Chase 1998), 298.15 K row",https://janaf.nist.gov/tables/Ca-002.html,25.929,647.0,"NIST-JANAF (same table as dHf, S)"
+CaH2,s,42.094,1.7,CRC Handbook value - not yet re-fetched,-181.5,41.4,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+CaSO4.2H2O,s,172.17,2.32,CRC Handbook value - not yet re-fetched,-2022.63,194.1,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+CaSO4,s,136.14,2.96,CRC Handbook value - not yet re-fetched,-1434.52,106.5,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+MgSO4.7H2O,s,246.47,1.68,CRC Handbook value - not yet re-fetched,-3388.71,372.0,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+MgSO4.H2O,s,138.38,2.57,CRC Handbook value - not yet re-fetched,-1602.1,126.4,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+CuSO4.5H2O,s,249.69,2.29,CRC Handbook value - not yet re-fetched,-2279.65,300.4,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+CuSO4,s,159.61,3.6,CRC Handbook value - not yet re-fetched,-771.36,109.2,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+Na2CO3.10H2O,s,286.14,1.46,CRC Handbook value - not yet re-fetched,-4081.32,562.7,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,
+Na2CO3,s,105.99,2.54,CRC Handbook value - not yet re-fetched,-1130.68,134.98,NBS 1982 tables (Wagman et al.) - not yet re-fetched,,,,

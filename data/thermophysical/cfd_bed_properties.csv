@@ -1,0 +1,12 @@
+property,value,unit,source_or_basis
+bed porosity,0.4,-,assumed design value (same in 1D and OpenFOAM)
+granule diameter,0.002,m,assumed design value
+granule apparent density,1100.0,kg/m3,"assumed (porous Ca(OH)2 granules, internal porosity ~0.5)"
+solid heat capacity,1300.0,J/kg/K,"assumed average; JANAF Ca(OH)2 1180 J/kg/K at 298 K, 1328 at 400 K"
+reactive solid per bed volume N0,8907.7,mol/m3,(1-eps) rho_p / M
+bed volumetric heat capacity,858000.0,J/m3/K,(1-eps) rho_p cp_s
+effective bed conductivity,0.4,W/m/K,assumed; within 0.3-1.3 W/m/K salt-hydrate range (Kiyabu 2026) - fit to experiments
+Darcy coefficient d,2.1094e+08,1/m2,Ergun: 150(1-eps)^2/(eps^3 dp^2)
+Forchheimer coefficient f,1.6406e+04,1/m,Ergun: 3.5(1-eps)/(eps^3 dp)
+reaction enthalpy,106.8,kJ/mol H2O,Schaube et al. 2012 equilibrium fit [R5]
+reaction entropy,137.2,J/mol/K,Schaube et al. 2012 equilibrium fit [R5]
