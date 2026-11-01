@@ -5,6 +5,16 @@ comparative plots, a classification scheme, a 1D transient reactor model, an Ope
 and machine-learning models. Thermodynamic data come from NIST-JANAF tables and open-access papers; every entry
 carries its source and a verification status.
 
+## ⭐ Where is the material database?
+
+| What you need | File |
+|---|---|
+| **Thermochemical material database (65 materials)** | [`data/tces_database.csv`](data/tces_database.csv) |
+| **All materials + thermophysical properties in one file** | [`data/thermophysical/materials_properties.csv`](data/thermophysical/materials_properties.csv) |
+| Same data as a database file (SQLite) | [`database/tces.db`](database/tces.db) |
+| References for the `ref_ids` codes | [`data/references.csv`](data/references.csv) |
+| **What every other file is** | [`FILE_GUIDE.md`](FILE_GUIDE.md) |
+
 ![Temperature vs energy density](figures/01_temperature_vs_volumetric_density.png)
 
 ## Contents
