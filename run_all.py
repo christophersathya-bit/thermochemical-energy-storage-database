@@ -8,6 +8,7 @@ STEPS = [
     ["scripts/compute_properties.py"],
     ["database/build_database.py"],
     ["scripts/verification_report.py"],
+    ["scripts/build_thermophysical.py"],
     ["scripts/classification.py"],
     ["scripts/plots.py"],
     ["cfd/python_1d_reactor/reactor_model.py", "--config", "cfd/python_1d_reactor/cases/caoh2_discharge.json"],

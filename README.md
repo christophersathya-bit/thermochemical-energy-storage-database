@@ -11,6 +11,7 @@ carries its source and a verification status.
 
 | Folder | What is inside |
 |---|---|
+| `data/thermophysical/` | Material and thermophysical property CSV files |
 | `data/` | Input data (`reactions_input.csv`, `thermo_species.csv`, `references.csv`) and the generated master table `tces_database.csv` |
 | `database/` | SQLite schema and builder → `tces.db` (tables, foreign keys, view `v_reactions_full`) |
 | `scripts/` | Property calculation, classification, comparative plots, PDF manuscript extraction |
@@ -201,6 +202,21 @@ Notes
 | `ED_vol_GJ_m3` | GJ/m³ | volumetric energy density (material level) |
 | `cyclability`, `main_issue` | – | qualitative notes from the literature |
 | `ref_ids` | – | keys into `data/references.csv` |
+
+### Material and thermophysical property files (CSV)
+
+[`data/thermophysical/`](data/thermophysical/) holds ready-to-use CSV files:
+
+| File | Content |
+|---|---|
+| [`materials_properties.csv`](data/thermophysical/materials_properties.csv) | all 65 materials: molar mass, densities, Cp, ΔH, ΔS, temperatures, energy densities, volume change, DRH, sources |
+| [`species_properties.csv`](data/thermophysical/species_properties.csv) | 38 chemical species: M, density, ΔfH°, S°, Cp(298 K) |
+| [`species_cp_vs_T.csv`](data/thermophysical/species_cp_vs_T.csv) | Cp, S, H−H298 at 298–1200 K from NIST-JANAF |
+| [`gas_properties.csv`](data/thermophysical/gas_properties.csv) | N₂/steam density, cp, viscosity, conductivity, Pr at 20–600 °C |
+| [`class_property_ranges.csv`](data/thermophysical/class_property_ranges.csv) | ranges per material class (Kiyabu et al. 2026) |
+| [`cfd_bed_properties.csv`](data/thermophysical/cfd_bed_properties.csv) | bed properties used in the CFD |
+
+Empty cells mean no sourced value yet; see [`data/thermophysical/README.md`](data/thermophysical/README.md) for columns and gaps.
 
 ### Data from Kiyabu et al. 2026 (Materials Horizons review)
 
