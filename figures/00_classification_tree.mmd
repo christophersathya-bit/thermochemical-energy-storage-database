@@ -10,7 +10,7 @@ flowchart LR
   style Metal_oxide_redox fill:#dbe8fa,stroke:#999
   Chemical_reactionGas_solid --> Metal_hydride["Metal hydride<br/><small>2 systems · 303-1114 °C</small>"]
   style Metal_hydride fill:#dbe8fa,stroke:#999
-  Chemical_reactionGas_solid --> Salt_hydrate_dehydration["Salt hydrate dehydration<br/><small>19 systems · 32-210 °C</small>"]
+  Chemical_reactionGas_solid --> Salt_hydrate_dehydration["Salt hydrate dehydration<br/><small>20 systems · 28-210 °C</small>"]
   style Salt_hydrate_dehydration fill:#dbe8fa,stroke:#999
   Chemical_reactionGas_solid --> Ammoniation["Ammoniation<br/><small>1 system · 90 °C</small>"]
   style Ammoniation fill:#dbe8fa,stroke:#999
@@ -19,8 +19,11 @@ flowchart LR
   style Gas_phase_reaction fill:#dbe8fa,stroke:#999
   TCES --> Sorption["Sorption"]
   Sorption --> SorptionAdsorption["Adsorption"]
-  SorptionAdsorption --> Physical_adsorption["Physical adsorption<br/><small>2 systems · 90-180 °C</small>"]
+  SorptionAdsorption --> Physical_adsorption["Physical adsorption<br/><small>3 systems · 70-180 °C</small>"]
   style Physical_adsorption fill:#fde2e2,stroke:#999
   Sorption --> SorptionAbsorption["Absorption"]
-  SorptionAbsorption --> Liquid_absorption["Liquid absorption<br/><small>1 system · 95 °C</small>"]
+  SorptionAbsorption --> Liquid_absorption["Liquid absorption<br/><small>9 systems · 45-95 °C</small>"]
   style Liquid_absorption fill:#fde2e2,stroke:#999
+  Sorption --> SorptionComposite["Composite"]
+  SorptionComposite --> Salt_in_porous_matrix["Salt in porous matrix<br/><small>17 systems · 20-62 °C</small>"]
+  style Salt_in_porous_matrix fill:#fde2e2,stroke:#999
