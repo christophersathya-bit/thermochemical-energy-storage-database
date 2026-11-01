@@ -1,0 +1,50 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  TCES packed-bed reactor - OpenFOAM v1912+ (ESI, openfoam.com)
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+
+application     rhoPorousSimpleFoam;
+startFrom       startTime;
+startTime       0;
+stopAt          endTime;
+endTime         1500;
+deltaT          1;
+writeControl    timeStep;
+writeInterval   500;
+purgeWrite      0;
+writeFormat     ascii;
+writePrecision  8;
+timeFormat      general;
+runTimeModifiable true;
+
+// Optional run-time monitoring (works on standard openfoam.com builds; uncomment to use).
+// Post-processing without function objects: python ../postprocess.py
+/*
+functions
+{
+    inletAverage
+    {
+        type            surfaceFieldValue;
+        libs            ("libfieldFunctionObjects.so");
+        writeControl    timeStep;
+        writeInterval   50;
+        log             true;
+        writeFields     false;
+        regionType      patch;
+        name            inlet;
+        operation       areaAverage;
+        fields          (T p);
+    }
+    outletAverage
+    {
+        $inletAverage;
+        name            outlet;
+    }
+}
+*/
