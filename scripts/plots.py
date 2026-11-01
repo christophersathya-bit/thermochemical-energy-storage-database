@@ -30,6 +30,7 @@ MECH2GROUP = {
     "Carbonate decarbonation": "Carbonates", "Metal oxide redox": "Metal oxides",
     "Metal hydride": "Metal hydrides", "Ammoniation": "Ammoniates",
     "Gas-phase reaction": "Gas-phase", "Physical adsorption": "Sorption", "Liquid absorption": "Sorption",
+    "Salt in porous matrix": "Sorption",
 }
 INK, INK2, GRID, SURF = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
 
@@ -78,7 +79,9 @@ def save(fig, name):
 
 def fig_temperature_vs_density(df):
     from adjustText import adjust_text
+    # composites are bed-level values at heat-release T -> shown separately in Fig. 13
     d = df.dropna(subset=["ED_vol_GJ_m3"])
+    d = d[(d.mechanism != "Salt in porous matrix") & ~d.id.str.startswith("L")]   # Fig. 13 shows these
     fig, (ax, az) = plt.subplots(1, 2, figsize=(14, 6.2), gridspec_kw={"width_ratios": [1.6, 1]})
     for b in (200, 500):
         ax.axvline(b, color=INK2, lw=1, ls="--", alpha=.6)
@@ -103,9 +106,12 @@ def fig_temperature_vs_density(df):
     ax.legend(handles=legend_handles([g for g in GROUPS if g in set(d.group)]), loc="upper left",
               bbox_to_anchor=(0.36, 0.98), frameon=False, ncol=2)
     texts = [az.text(r.T_operating_C, r.ED_vol_GJ_m3, r.short, fontsize=8, color=INK2) for r in d[zoom].itertuples()]
+    az.axhspan(1.44, 2.16, color="#e4e3df", alpha=0.6, zorder=0, lw=0)
+    az.text(22, 1.47, "material-level target 400–600 kWh/m³ (Kiyabu et al. 2026, Table 1)", ha="left", va="bottom",
+            fontsize=7, color=INK2)
     az.set_xlim(20, 200); az.set_ylim(0, 3.1)
-    az.text(0.99, 0.995, "hollow marker = value not yet verified against a source", transform=az.transAxes,
-            ha="right", va="top", fontsize=7.5, color=INK2)
+    fig.text(0.99, 0.005, "Hollow marker = value not yet verified against a source.  Composites and liquid working pairs: see Fig. 13.",
+             ha="right", va="bottom", fontsize=7.5, color=INK2)
     adjust_text(texts, ax=az, expand=(1.4, 1.8), arrowprops=dict(arrowstyle="-", color=GRID, lw=0.8))
     az.set_title("Zoom: low-temperature systems (<200 °C)")
     az.set_xlabel("Operating (charging) temperature  [°C]")
@@ -115,7 +121,8 @@ def fig_temperature_vs_density(df):
 
 def fig_gravimetric_bar(df):
     d = df.dropna(subset=["ED_grav_MJ_kg"]).sort_values("ED_grav_MJ_kg")
-    fig, ax = plt.subplots(figsize=(9, 9))
+    fig, ax = plt.subplots(figsize=(9, max(9, 0.27 * len(d))))
+    ax.margins(y=0.01)
     ax.barh(d["name"], d["ED_grav_MJ_kg"], color=[GROUPS[g][0] for g in d["group"]],
             edgecolor=SURF, linewidth=2, height=0.8)
     for i, v in enumerate(d["ED_grav_MJ_kg"]):
@@ -199,6 +206,41 @@ def fig_class_counts(df):
     save(fig, "05_classification_counts.png")
 
 
+def fig_low_t_sorbents(df):
+    """Composites (bed level) and liquid working pairs from Kiyabu et al. 2026, Tables 7-8."""
+    comp = df[df.mechanism == "Salt in porous matrix"].dropna(subset=["ED_vol_GJ_m3"])
+    liq = df[df.mechanism == "Liquid absorption"].dropna(subset=["ED_vol_GJ_m3", "T_release_C"])
+    salts = list(dict.fromkeys(comp["name"].str.split(" in ").str[0]))
+    cols = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]
+    marks = ["o", "s", "^", "D", "v"]
+    fig, ax = plt.subplots(1, 2, figsize=(13, 5))
+    for k, sname in enumerate(salts):
+        sub = comp[comp["name"].str.startswith(sname + " in ")]
+        ax[0].scatter(sub["T_release_C"], sub["ED_vol_GJ_m3"], s=80, c=cols[k % 5], marker=marks[k % 5],
+                      edgecolors=SURF, linewidths=1.3, label=sname, zorder=3)
+        for r in sub.itertuples():
+            ax[0].annotate(r.name.split(" in ")[1], (r.T_release_C, r.ED_vol_GJ_m3), xytext=(5, 3),
+                           textcoords="offset points", fontsize=7, color=INK2)
+    ax[0].set(xlabel="Heat-release temperature [°C]", ylabel="ESD per bed volume [GJ/m³]",
+              title="Salt-in-porous-matrix composites")
+    ax[0].legend(frameon=False, fontsize=8, title="Salt", title_fontsize=8)
+    for cryst, c, m in [(False, "#2a78d6", "o"), (True, "#eb6834", "s")]:
+        sub = liq[liq["name"].str.contains("crystallization") == cryst]
+        ax[1].scatter(sub["T_operating_C"], sub["ED_vol_GJ_m3"], s=80, c=c, marker=m, edgecolors=SURF, linewidths=1.3,
+                      label="with crystallization" if cryst else "liquid only", zorder=3)
+        for r in sub.itertuples():
+            ax[1].annotate(r.reaction.split(" (")[0], (r.T_operating_C, r.ED_vol_GJ_m3), xytext=(5, 3),
+                           textcoords="offset points", fontsize=7, color=INK2)
+    ax[1].set(xlabel="Storage (charging) temperature [°C]", ylabel="ESD_ab [GJ/m³ of solution]",
+              title="Liquid absorption working pairs")
+    ax[1].legend(frameon=False, fontsize=8)
+    for a in ax:
+        a.set_ylim(bottom=0)
+    fig.text(0.01, 0.005, "Data: Kiyabu et al., Mater. Horiz. 13 (2026) 2087, Tables 7 and 8", fontsize=7, color=INK2)
+    fig.tight_layout(rect=(0, 0.02, 1, 1))
+    save(fig, "13_composites_and_liquid_pairs.png")
+
+
 if __name__ == "__main__":
     df = load()
     fig_temperature_vs_density(df)
@@ -206,3 +248,4 @@ if __name__ == "__main__":
     fig_group_ranges(df)
     fig_vant_hoff(df)
     fig_class_counts(df)
+    fig_low_t_sorbents(df)

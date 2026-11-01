@@ -83,6 +83,10 @@ def main():
             d["T_basis"] = "T_eq at 1 bar reactive gas (298 K data)" if pd.isna(r["T_charge_C_lit"]) else "typical operating T"
         elif "20 mbar" in str(r["notes"]):
             d["T_basis"] = "dehydration T at 20 mbar water vapour"
+        elif "storage (charging)" in str(r["notes"]):
+            d["T_basis"] = "storage (charging) T of prototype / cycle"
+        elif "heat release" in str(r["notes"]) or "T_operating = T_release" in str(r["notes"]):
+            d["T_basis"] = "heat-release T (charging T not reported)"
         else:
             d["T_basis"] = "typical charging T from source"
         d["temperature_class"] = temperature_class(d["T_operating_C"])
@@ -92,7 +96,7 @@ def main():
     keep = ["id", "name", "reaction", "family", "subfamily", "mechanism", "working_gas", "data_mode",
             "dH_kJ_mol_rxn", "dS_J_molK_rxn", "nu_gas", "dH_kJ_per_mol_gas", "T_eq_C", "T_operating_C", "T_basis",
             "temperature_class", "M_left_g_mol", "density_left_g_cm3", "ED_grav_MJ_kg", "ED_grav_kWh_kg",
-            "ED_vol_GJ_m3", "cyclability", "main_issue", "ref_ids", "verification", "source_location", "notes"]
+            "ED_vol_GJ_m3", "ED_vol_basis", "ED_bed_GJ_m3", "T_release_C", "volume_decrease_pct", "DRH_pct", "cyclability", "main_issue", "ref_ids", "verification", "source_location", "notes"]
     out = out[keep].round(3)
     out.to_csv(DATA / "tces_database.csv", index=False)
     print(out[["id", "name", "T_operating_C", "ED_grav_MJ_kg", "ED_vol_GJ_m3", "temperature_class"]].to_string())
