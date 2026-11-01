@@ -1,0 +1,10 @@
+family,subfamily,mechanism,n_systems,T_min_C,T_max_C,ED_grav_min_MJ_kg,ED_grav_max_MJ_kg,ED_vol_max_GJ_m3
+Chemical reaction,Gas-gas,Gas-phase reaction,4,500.0,779.04,1.24,6.05,
+Chemical reaction,Gas-solid,Ammoniation,1,90.0,90.0,0.98,0.98,
+Chemical reaction,Gas-solid,Carbonate decarbonation,4,395.51,1307.58,1.39,1.79,5.97
+Chemical reaction,Gas-solid,Hydroxide dehydration,2,261.86,486.78,1.4,1.47,3.27
+Chemical reaction,Gas-solid,Metal hydride,2,302.6,1113.74,2.89,4.31,7.33
+Chemical reaction,Gas-solid,Metal oxide redox,3,959.32,1063.3,0.21,0.89,5.61
+Chemical reaction,Gas-solid,Salt hydrate dehydration,19,32.0,210.0,0.27,1.86,2.79
+Sorption,Absorption,Liquid absorption,1,95.0,95.0,,,0.58
+Sorption,Adsorption,Physical adsorption,2,90.0,180.0,,,0.64

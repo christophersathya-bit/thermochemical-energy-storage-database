@@ -1,0 +1,16 @@
+check,item,property,database,reference,difference,source,comment
+A,Ca(OH)2,dHf / S (298 K),-985.2 / 83.4,-986.085 / 83.387,"-0.88 kJ/mol, -0.01 J/mol/K",https://janaf.nist.gov/tables/Ca-020.html,JANAF value now used
+A,MgCO3,dHf / S (298 K),-1095.8 / 65.7,-1111.689 / 65.854,"-15.89 kJ/mol, +0.15 J/mol/K",https://janaf.nist.gov/tables/C-079.html,JANAF value now used
+A,SrO,dHf / S (298 K),-592.0 / 54.4,-592.036 / 55.522,"-0.04 kJ/mol, +1.12 J/mol/K",https://janaf.nist.gov/tables/O-013.html,JANAF value now used
+A,Co3O4,dHf / S (298 K),-891.0 / 102.5,-910.02 / 114.286,"-19.02 kJ/mol, +11.79 J/mol/K",https://janaf.nist.gov/tables/Co-015.html,JANAF value now used
+A,CuO,dHf / S (298 K),-157.3 / 42.6,-156.063 / 42.594,"+1.24 kJ/mol, -0.01 J/mol/K",https://janaf.nist.gov/tables/Cu-015.html,JANAF value now used
+A,Cu2O,dHf / S (298 K),-168.6 / 93.1,-170.707 / 92.36,"-2.11 kJ/mol, -0.74 J/mol/K",https://janaf.nist.gov/tables/Cu-019.html,JANAF value now used
+A,MgH2,dHf / S (298 K),-75.3 / 31.1,-76.149 / 31.091,"-0.85 kJ/mol, -0.01 J/mol/K",https://janaf.nist.gov/tables/H-056.html,JANAF value now used
+B,S03 Copper sulfate pentahydrate,ED_vol CuSO4.5H2O -> CuSO4,2.74 GJ/m3,2.56 GJ/m3,+7 %,"Donkers 2017 App. A p.59 (row CuSO4 5->0, combined)",database uses NBS data + crystal density
+B,S02 Gypsum,ED_vol CaSO4.2H2O -> CaSO4,1.41 GJ/m3,1.25-1.29 GJ/m3,+13 %,Donkers 2017 App. A p.58 (rows CaSO4 2->0),
+B,O01 Cobalt oxide,ED_grav Co3O4 -> CoO,817 kJ/kg,597 kJ/kg,+37 %,"André et al. 2017 (measured, DSC)",JANAF 298 K data overestimate; JANAF T_eq 1063 C vs ~920 C reduction onset in air
+B,O02 Manganese oxide,ED_grav Mn2O3 -> Mn3O4,214 kJ/kg,190.1 kJ/kg,+13 %,André et al. 2017 (theoretical at 915 C; measured 148),
+C,S16 Cobalt chloride hexahydrate,"Thyd at 12 mbar from dH, dS (per mol H2O)",27.2 C,29 C (printed),-1.8 K,Donkers 2017 App. A,"confirms dH, dS are per mol H2O"
+C,S17 Copper sulfate pentahydrate (5->3),"Thyd at 12 mbar from dH, dS (per mol H2O)",26.1 C,28 C (printed),-1.9 K,Donkers 2017 App. A,"confirms dH, dS are per mol H2O"
+C,S18 Gypsum to hemihydrate,"Thyd at 12 mbar from dH, dS (per mol H2O)",25.0 C,26 C (printed),-1.0 K,Donkers 2017 App. A,"confirms dH, dS are per mol H2O"
+C,S19 SrBr2.H2O,291 kJ/kg SrBr2 vs dH/M,291 kJ/kg,291 kJ/kg,-0 kJ/kg,Stengler et al. (DLR),T_eq(1 bar) = 227 C
