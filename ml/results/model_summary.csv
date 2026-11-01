@@ -2,6 +2,6 @@ model,target,MAE,R2 / accuracy
 Linear regression,T_eq [°C],287.82169638476597,0.22977546449257424
 Random forest,T_eq [°C],115.22710166666569,0.8695889013491341
 Gaussian process,T_eq [°C],88.93466106558657,0.9048484263561127
-Linear regression,ED_grav [MJ/kg],0.5914503797510186,0.6315161980330803
-Random forest,ED_grav [MJ/kg],0.6888575000000001,0.47187304909792815
-Random forest,material group (accuracy),,0.8823529411764706
+Linear regression,ED_grav [MJ/kg],0.6203738620842497,0.6242245567746996
+Random forest,ED_grav [MJ/kg],0.7219646590909101,0.4661896445270932
+Random forest,material group (accuracy),,0.8571428571428571

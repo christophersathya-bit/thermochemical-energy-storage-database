@@ -10,4 +10,6 @@ S12,Calcium chloride dihydrate,Salt hydrates,111.0,1.54,0.837,unknown,deliquesce
 A01,Strontium chloride ammoniate,Ammoniates,90.0,,0.984,good,NH3 toxicity,0.346
 P03,Sodium hydroxide - water,Sorption,95.0,0.576,,good,corrosive liquid,0.332
 P02,Silica gel - water,Sorption,90.0,0.18,,very good,low energy density,0.326
+L02,LiBr-H2O absorption (with crystallization),Sorption,93.0,1.4,,unknown,,0.299
 S19,Strontium bromide monohydrate,Salt hydrates,210.0,,0.271,good,cost,0.269
+L08,LiBr-C2H5OH absorption (with crystallization),Sorption,95.0,0.2,,unknown,,0.127
