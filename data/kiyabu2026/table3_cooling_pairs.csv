@@ -1,0 +1,6 @@
+sorbent,refrigerant,SCP_W_kg,delta_w_g_g,ref_in_paper
+CaCl2 in silica,H2O,,0.75,345
+CaCl2 in zeolite + MWCNT,H2O,1111,0.5,346
+MnCl2 in expanded graphite,NH3,350,0.54,285
+BaCl2 in vermiculite,NH3,300-680,0.25,286;347
+LiCl in silica,CH3OH,210-290,0.6,348

@@ -1,0 +1,18 @@
+salt,matrix,specific_energy_MJ_kg,ESD_bed_GJ_m3,T_evap_C,T_release_C,ExSD_MJ_m3,ref_in_paper
+CaCl2,Hollow silica,1.1,0.86,13,45,96,49
+CaCl2,Ethylcellulose,2.1,0.4,10,20,14,354
+CaCl2,SiO2 (Grace Davisil),1.1,0.76,10,30,54,355
+CaCl2,Silica-alumina,0.9,0.65,3,20,40,356
+CaCl2,PHTS (plugged hexagonal templated silicate),1.2,,10,30,,357
+CaCl2,MIL-101(Cr),1.6,1.0,10,30,71,358
+LiCl,UiO-66,0.9,,10,40,,291
+LiCl,Hollow silica,0.75,0.65,13,45,73,49
+LiCl,Hollow silica,0.63,0.52,13,60,85,49
+LiCl,MWCNT + PVA,1.6,0.65,10,35,57,359
+LiCl,Expanded vermiculite,>1.8,0.8,10,35,70,360
+LiCl,SiO2 (Fuji Type A),1.1,0.6,15,40,52,361
+MgCl2,Zeolite 13x,1.2,,25,62,,362
+SrBr2,Hollow silica,0.69,0.63,18,45,59,49
+SrBr2,Expanded vermiculite,1.6,0.38,20,30,13,339
+SrBr2,MIL-101(Cr),1.35,0.84,10,30,59,363
+K2CO3,Expanded vermiculite,,0.9,20,30,31,344

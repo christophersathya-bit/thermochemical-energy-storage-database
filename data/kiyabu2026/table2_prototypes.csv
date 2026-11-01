@@ -1,0 +1,8 @@
+heat_release_transition,type,ESD_material_GJ_m3,ESD_bed_GJ_m3,T_evap_C,T_release_C,T_storage_C,TL_max_C,power_W_kg,N_cycles,ref_in_paper
+MgCl2.2H2O + 4H2O <-> MgCl2.6H2O,"Packed bed, closed",2.0,0.5,10,50,130,54,,,339
+K2CO3 + 1.5H2O <-> K2CO3.1.5H2O,"Packed bed, closed",1.3,0.8,10,40,90,50,,14,340
+SrBr2.H2O + 5H2O <-> SrBr2.6H2O,"Packed bed, closed",2.6,0.67,15,35,80,,86.4 (avg),,341
+LiCl + H2O <-> LiCl solution (vermiculite),"Packed bed, closed",,1.0,10,35,90,12,2100 (peak),14,342
+LiBr + H2O <-> LiBr solution (silica),"Packed bed, closed",1.37,,10,30,120,17,300 (peak),10,343
+K2CO3 + H2O <-> K2CO3 solution (vermiculite),"Packed bed, closed",,0.9,25,40,120,15,450 (avg),47,344
+CaCl2.2H2O + H2O <-> CaCl2 solution (vermiculite),"Packed bed, open",,0.36,20,57,80,36,106 (peak),6,58

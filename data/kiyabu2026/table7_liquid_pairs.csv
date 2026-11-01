@@ -1,0 +1,9 @@
+working_pair,crystallization,T_evap_C,T_release_C,T_storage_C,ESD_ab_GJ_m3,ref_in_paper
+LiBr-H2O,No,7,43,80,0.40,350
+LiBr-H2O,Yes,10,20,93,1.4,111
+CaCl2-H2O,No,10,20,45,0.43,351
+CaCl2-H2O,Yes,10,20,54,0.95,111
+LiCl-H2O,Yes,10,20,66,1.4,111
+LiBr-CH3OH,Yes,5,35,75,0.2,352
+LiCl-CH3OH,Yes,10,35,75,0.8,352
+LiBr-C2H5OH,Yes,10,30,95,0.2,353

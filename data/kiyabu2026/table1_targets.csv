@@ -1,0 +1,7 @@
+property,target,comment,source_refs_in_paper
+System-level energy density,200 kWh/m3 (DOE) / 220 kWh/m3 (RHC-ETIP),Based on U.S. DOE and RHC-ETIP,49;52
+Materials-level energy density,400-600 kWh/m3,Assumes system energy density is 30-50% of materials energy density,53
+Cost of composite storage material,< $15 per kWh,Includes active material and materials that facilitate heat/mass transport,49
+Thermal conductivity,> 1.0 W/m/K,For composite storage material,49
+Capacity retention and cycle life,"> 90%, 7500 cycles or 20 years (25 years)",,49;52
+Subcooling/supercooling,< 2 C,Low temperature hysteresis desired for charging/discharging,49

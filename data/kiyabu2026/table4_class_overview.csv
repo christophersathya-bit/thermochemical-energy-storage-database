@@ -1,0 +1,8 @@
+class,material,energy_density_max,stability,power_output,non_technical,TRL,refs_in_paper
+I,Salt hydrates,"up to 3.8 GJ/m3 and 2.3 MJ/kg","Issues with melting, deliquescence, and hydrolysis","up to 0.7 MW/m3 and 0.5 kW/kg",Rarity and toxicity vary by salt,Laboratory and prototype scale,87;128;155
+I,Salt ammoniates,"up to 2.1 GJ/m3 and 1.6 MJ/kg",Issues with thermal decomposition,up to 1.5 kW/kg,"Rarity varies by salt, ammonia is toxic",Laboratory scale,91;94
+I,Salt methanolates,up to 1.3 MJ/kg,Limited data available,up to 0.4 kW/kg,Methanol is flammable and toxic,Laboratory scale,96;97
+II,Silica gel,"up to 0.8 GJ/m3 and 1.4 MJ/kg",Good stability,up to 0.01 kW/kg (prototype),Cheaper,Commercial scale,134;104
+II,Zeolites,"up to 0.7 GJ/m3 and 1.1 MJ/kg",Good stability,up to 0.03 kW/kg (prototype),Can be expensive,Commercial scale,134;349
+II,MOFs,up to 1.3 MJ/kg,Issues with hydrolysis,up to 2.1 kW/kg,Can be expensive,Laboratory scale,109
+III,Liquid dilution,up to 1.4 GJ/m3,Good stability,up to 0.03 MW/m3 (prototype),Can be cheaper,Commercial scale,111;350

@@ -1,0 +1,8 @@
+salt,n_range,ED_crystal_GJ_m3,volume_decrease_pct,T_release_C,DRH_pct
+CaCl2,0-2,1.54,35,63,13
+K2CO3,0-1.5,1.30,22,59,43
+MgCl2,2-6,1.93,47,61,33
+MgSO4,1-7,2.27,63,24,90
+Na2S,0.5-5,2.79,60,66,>34
+SrBr2,0-6,2.49,61,48,61
+SrCl2,0-6,2.99,62,28,73
