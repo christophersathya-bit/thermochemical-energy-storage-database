@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# manuscripts are copyrighted - keep PDFs local, commit only extracted values
+manuscripts/*.pdf
+data/manuscript_tables/
+# simulation outputs
+cfd/python_1d_reactor/results/*/vtk/
+cfd/openfoam/packedBedReactor/[1-9]*/
+cfd/openfoam/packedBedReactor/constant/polyMesh/
+cfd/openfoam/packedBedReactor/VTK/
+cfd/openfoam/packedBedReactor/log.*
+cfd/openfoam/packedBedReactor/0.orig/
+cfd/openfoam/packedBedReactor/postProcessing*/
+ml/results/surrogate_models.joblib
