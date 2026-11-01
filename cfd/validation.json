@@ -1,0 +1,211 @@
+{
+  "checks": [
+    [
+      "V1",
+      "energy balance, caoh2_charge",
+      "0.325 %",
+      "\u2264 1.0 %",
+      "PASS"
+    ],
+    [
+      "V1",
+      "energy balance, caoh2_discharge",
+      "0.155 %",
+      "\u2264 1.0 %",
+      "PASS"
+    ],
+    [
+      "V1",
+      "energy balance, mgso4_discharge",
+      "0.0888 %",
+      "\u2264 1.0 %",
+      "PASS"
+    ],
+    [
+      "V2",
+      "grid 80->160 cells, time_to_90pct_conversion_s",
+      "0.101 %",
+      "\u2264 2.0 %",
+      "PASS"
+    ],
+    [
+      "V2",
+      "grid 80->160 cells, T_out_max_C",
+      "-0.00922 %",
+      "\u2264 2.0 %",
+      "PASS"
+    ],
+    [
+      "V2",
+      "grid 80->160 cells, peak_total_power_W",
+      "-0.205 %",
+      "\u2264 2.0 %",
+      "PASS"
+    ],
+    [
+      "V3",
+      "adiabatic T_max vs T_eq(p_in) (must not exceed, gap < 3 K)",
+      "-0.97 K",
+      3.0,
+      "PASS"
+    ],
+    [
+      "V4",
+      "N2 cp 400 C (1092 vs ref 1098)",
+      "-0.585 %",
+      "\u2264 5.0 %",
+      "PASS"
+    ],
+    [
+      "V4",
+      "N2 mu 400 C (3.135e-05 vs ref 3.2e-05)",
+      "-2.03 %",
+      "\u2264 5.0 %",
+      "PASS"
+    ],
+    [
+      "V4",
+      "N2 k 400 C (0.04813 vs ref 0.0485)",
+      "-0.767 %",
+      "\u2264 5.0 %",
+      "PASS"
+    ],
+    [
+      "V4",
+      "H2O cp 400 C, 1 bar (2064 vs ref 2070)",
+      "-0.305 %",
+      "\u2264 5.0 %",
+      "PASS"
+    ],
+    [
+      "V4",
+      "H2O mu 400 C (2.432e-05 vs ref 2.43e-05)",
+      "0.0667 %",
+      "\u2264 5.0 %",
+      "PASS"
+    ],
+    [
+      "V4",
+      "H2O k 400 C (0.05294 vs ref 0.054)",
+      "-1.97 %",
+      "\u2264 5.0 %",
+      "PASS"
+    ],
+    [
+      "O1",
+      "bed \u0394p vs Ergun (base mesh)",
+      "1.37 %",
+      "\u2264 3.0 %",
+      "PASS"
+    ],
+    [
+      "O2",
+      "mass conservation (base mesh)",
+      "0.00175 %",
+      "\u2264 0.1 %",
+      "PASS"
+    ],
+    [
+      "O3",
+      "energy conservation, adiabatic (base mesh)",
+      "-0.0831 %",
+      "\u2264 1.0 %",
+      "PASS"
+    ],
+    [
+      "O4",
+      "mesh base->fine, bed \u0394p",
+      "-0.726 %",
+      "\u2264 2.0 %",
+      "PASS"
+    ],
+    [
+      "O4",
+      "mesh base->fine, outlet \u0394T",
+      "0.0309 %",
+      "\u2264 2.0 %",
+      "PASS"
+    ],
+    [
+      "O5",
+      "OpenFOAM \u0394T 21.96 K vs 1D-gas energy balance 22.02 K",
+      "-0.278 %",
+      "\u2264 2.0 %",
+      "PASS"
+    ]
+  ],
+  "grid_convergence": {
+    "40": {
+      "time_to_90pct_conversion_s": 1440.3515985110953,
+      "T_out_max_C": 447.79858726618954,
+      "peak_total_power_W": 253.97146266936102
+    },
+    "80": {
+      "time_to_90pct_conversion_s": 1437.5193258937643,
+      "T_out_max_C": 447.9082004479218,
+      "peak_total_power_W": 253.85613757443787
+    },
+    "160": {
+      "time_to_90pct_conversion_s": 1436.065153301101,
+      "T_out_max_C": 447.9495124448475,
+      "peak_total_power_W": 254.3767211736354
+    }
+  },
+  "equilibrium_limit": {
+    "T_eq_C": 473.89567399346834,
+    "T_max_C": 472.92572298904736
+  },
+  "openfoam": {
+    "coarse": {
+      "time": "87",
+      "wall": "adiabatic",
+      "pressure_drop_bed_cfd_Pa": 262.50180555554107,
+      "pressure_drop_bed_ergun_Pa": 255.59506751976994,
+      "pressure_drop_error_pct": 2.70221882714419,
+      "mass_flow_in_kg_s": 0.000161698754736,
+      "mass_flow_out_kg_s": 0.000161702924256,
+      "mass_balance_error_pct": 0.002578572733473341,
+      "heat_source_W": 5.234789840317335,
+      "heat_to_gas_W": 5.232228645120303,
+      "heat_through_wall_W": 0.002561195197031907,
+      "energy_balance_error_pct": -0.04892641873234487,
+      "T_inlet_C": 399.9999999999999,
+      "T_outlet_bulk_C": 421.96359534888427,
+      "T_max_C": 421.97128
+    },
+    "base": {
+      "time": "236",
+      "wall": "adiabatic",
+      "pressure_drop_bed_cfd_Pa": 266.11054399999557,
+      "pressure_drop_bed_ergun_Pa": 262.5076632939642,
+      "pressure_drop_error_pct": 1.3724859155813551,
+      "mass_flow_in_kg_s": 0.00016170460138799998,
+      "mass_flow_out_kg_s": 0.00016170742356479996,
+      "mass_balance_error_pct": 0.0017452668481639662,
+      "heat_source_W": 5.234789840317335,
+      "heat_to_gas_W": 5.230439017097848,
+      "heat_through_wall_W": 0.004350823219486877,
+      "energy_balance_error_pct": -0.08311361778036783,
+      "T_inlet_C": 400.0,
+      "T_outlet_bulk_C": 421.96107477085786,
+      "T_max_C": 421.97685
+    },
+    "fine": {
+      "time": "699",
+      "wall": "adiabatic",
+      "pressure_drop_bed_cfd_Pa": 268.05586000000767,
+      "pressure_drop_bed_ergun_Pa": 266.0307753859362,
+      "pressure_drop_error_pct": 0.7612219342418777,
+      "mass_flow_in_kg_s": 0.00016170777639288003,
+      "mass_flow_out_kg_s": 0.0001617075637416,
+      "mass_balance_error_pct": -0.00013150343463054452,
+      "heat_source_W": 5.234789840317335,
+      "heat_to_gas_W": 5.225820534339545,
+      "heat_through_wall_W": 0.00896930597779022,
+      "energy_balance_error_pct": -0.17134032599953425,
+      "T_inlet_C": 399.9999999999999,
+      "T_outlet_bulk_C": 421.95428699173203,
+      "T_max_C": 421.98741000000007
+    }
+  }
+}
