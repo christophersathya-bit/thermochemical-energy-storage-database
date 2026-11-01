@@ -30,6 +30,9 @@ def build():
     db[cols].to_sql("reactions", con, if_exists="append", index=False)
     links = [(r.id, ref) for r in db.itertuples() for ref in str(r.ref_ids).split(";") if ref]
     con.executemany("INSERT INTO reaction_references VALUES (?, ?)", links)
+    # tables copied verbatim from Kiyabu et al. 2026 (Mater. Horiz.) -> paper_<name> tables
+    for f in sorted((ROOT / "data" / "kiyabu2026").glob("*.csv")):
+        pd.read_csv(f).to_sql("kiyabu2026_" + f.stem, con, if_exists="replace", index=False)
     con.commit()
     n = con.execute("SELECT COUNT(*) FROM reactions").fetchone()[0]
     print(f"Built {DB.name}: {n} reactions, {len(sp)} species, {len(refs)} references")
