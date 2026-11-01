@@ -1,0 +1,29 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  TCES packed-bed reactor - OpenFOAM v1912+ (ESI, openfoam.com)
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvOptions;
+}
+
+// Volumetric reaction heat released in the packed bed during discharge [W/m3]
+// Value taken from the 1D transient model (mean power / bed volume) by ../setup_from_1d.py
+reactionHeat
+{
+    type            scalarSemiImplicitSource;
+    active          yes;
+
+    scalarSemiImplicitSourceCoeffs
+    {
+        selectionMode   cellZone;
+        cellZone        bed;
+        volumeMode      specific;
+        injectionRateSuSp
+        {
+            h   (1.3330e+04 0);
+        }
+    }
+}

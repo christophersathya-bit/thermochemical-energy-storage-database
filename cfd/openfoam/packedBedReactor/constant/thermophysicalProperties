@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  TCES packed-bed reactor - OpenFOAM v1912+ (ESI, openfoam.com)
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      thermophysicalProperties;
+}
+
+// Carrier gas: humid nitrogen, ideal gas with constant properties evaluated at inlet conditions
+// GAS: y_H2O = 0.50, T = 400 C (cfd/properties.py)
+
+thermoType
+{
+    type            hePsiThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+mixture
+{
+    specie        { molWeight 23.0144; }
+    thermodynamics { Cp 1472.05; Hf 0; }
+    transport     { mu 2.81645e-05; Pr 0.8233; }
+}

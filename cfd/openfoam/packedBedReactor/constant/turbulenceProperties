@@ -1,0 +1,12 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  TCES packed-bed reactor - OpenFOAM v1912+ (ESI, openfoam.com)
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      turbulenceProperties;
+}
+
+simulationType laminar;
