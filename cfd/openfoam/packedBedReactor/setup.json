@@ -1,0 +1,24 @@
+{
+  "case_json": "/home/claude/tces/cfd/python_1d_reactor/cases/caoh2_discharge.json",
+  "wall": "isothermal",
+  "source": "gas",
+  "q_W_m3": 13330.282866139794,
+  "eps": 0.4,
+  "dp": 0.002,
+  "darcy_d": 210937499.99999994,
+  "forchheimer_f": 16406.249999999996,
+  "u_s": 0.2,
+  "T_in": 673.15,
+  "T_wall": 673.15,
+  "p_tot": 100000.0,
+  "bed_length": 0.2,
+  "bed_diameter": 0.05,
+  "gas": {
+    "M": 0.023014350000000003,
+    "rho": 0.411199595087065,
+    "cp": 1472.0492193576827,
+    "mu": 2.816446402357552e-05,
+    "k": 0.05035624486840319,
+    "Pr": 0.8233234505050689
+  }
+}

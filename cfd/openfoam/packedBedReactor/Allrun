@@ -1,0 +1,9 @@
+#!/bin/sh
+# Run from this directory with OpenFOAM v1912+ (openfoam.com) sourced.
+cd "${0%/*}" || exit 1
+rm -rf 0.orig; cp -r 0 0.orig 2>/dev/null
+blockMesh        > log.blockMesh 2>&1
+checkMesh        > log.checkMesh 2>&1
+rhoPorousSimpleFoam > log.rhoPorousSimpleFoam 2>&1
+foamToVTK -latestTime > log.foamToVTK 2>&1
+tail -n 5 log.rhoPorousSimpleFoam
