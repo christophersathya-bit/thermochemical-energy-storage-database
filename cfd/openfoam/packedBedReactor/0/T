@@ -1,0 +1,21 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  TCES packed-bed reactor - OpenFOAM v1912+ (ESI, openfoam.com)
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+
+dimensions      [0 0 0 1 0 0 0];
+internalField   uniform 673.15;
+boundaryField
+{
+    inlet        { type fixedValue; value uniform 673.15; }
+    outlet       { type inletOutlet; inletValue uniform 673.15; value uniform 673.15; }
+    wall         { type fixedValue; value uniform 673.15; }   // heat-transfer-fluid side
+    "(front|back)" { type wedge; }
+    axis         { type empty; }
+}
