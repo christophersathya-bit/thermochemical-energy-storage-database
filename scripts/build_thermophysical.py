@@ -98,6 +98,9 @@ def main():
             d["volume_change_calc_pct"] = np.nan
         rows.append(d)
     m = pd.DataFrame(rows)
+    sc = ROOT / "data" / "safety_cost" / "material_safety_cost.csv"
+    if sc.exists():  # cost (Donkers 2017) and GHS hazards (PubChem), see data/safety_cost/README.md
+        m = m.merge(pd.read_csv(sc).drop(columns=["name"]), on="id", how="left")
     m.to_csv(OUT / "materials_properties.csv", index=False)
 
     # ---- gas_properties.csv ----------------------------------------------------
