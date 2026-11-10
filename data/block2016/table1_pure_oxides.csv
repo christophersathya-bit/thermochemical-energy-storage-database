@@ -1,0 +1,5 @@
+material,red_onset_T_C,red_mass_change_pct,red_enthalpy_J_g,red_time_min,reox_onset_T_C,reox_mass_change_pct,reox_enthalpy_J_g,reox_time_min
+Co-oxide,914.6,6.4,576,5.8,879.7,6.2,562,12.2
+Cu-oxide,1042.5,9.9,652,4.3,1021.1,8.3,,24.6
+Fe-oxide,1392.2,2.8,599,4.7,1374.0,2.8,559,4.8
+Mn-oxide,942.3,3.3,231,6.1,,3.4,,71.6
