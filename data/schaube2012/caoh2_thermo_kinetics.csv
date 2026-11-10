@@ -1,0 +1,8 @@
+quantity,value,unit,equation_or_location,note
+reaction enthalpy (standard),104.4,kJ/mol,Eq. (1),Ca(OH)2 + 104.4 kJ/mol <=> CaO + H2O
+equilibrium line,ln(Peq/1e5) = -12845/Teq + 16.508,P in Pa; T in K,Eq. (2),"implies dH = 12845*R = 106.8 kJ/mol and dS = 16.508*R = 137.2 J/mol/K"
+equilibrium temperature at 1 bar H2O,505,C,text after Eq. (2),
+dehydration rate X<0.2,dX/dt = 1.9425e12 exp(-187.88e3/(R T)) (1 - P/Peq)^3 (1 - X),1/s,Eq. (11),
+dehydration rate X>0.2,dX/dt = 8.9588e9 exp(-162.62e3/(R T)) (1 - P/Peq)^3 2 (1 - X)^0.5,1/s,Eq. (12),"printed as (1-P/Peq)^3 2(1-X)^0.5"
+hydration rate Teq-T >= 50 K,dX/dt = 13945 exp(-89.486e3/(R T)) (P/Peq - 1)^0.83 3 (1 - X) [-ln(1 - X)]^0.666,1/s,Eq. (14),
+hydration rate Teq-T < 50 K,dX/dt = 1.0004e-34 exp(53.332e3/T) (P/1e5)^6 (1 - X),1/s,Eq. (15),valid for P > Peq
