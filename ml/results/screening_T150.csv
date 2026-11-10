@@ -1,13 +1,13 @@
 id,name,group,T_operating_C,ED_vol_GJ_m3,ED_grav_MJ_kg,cyclability,main_issue,score
-S04,Sodium carbonate decahydrate,Salt hydrates,91.339,2.716,1.861,moderate,low melting point of hydrate (~32 C),0.748
-S03,Copper sulfate pentahydrate,Salt hydrates,124.157,2.744,1.198,moderate,cost,0.736
-S09,Lithium hydroxide monohydrate,Salt hydrates,100.0,2.195,1.454,moderate,cost,0.643
-S01,Magnesium sulfate heptahydrate,Salt hydrates,105.093,2.288,1.362,poor,slow hydration / agglomeration,0.565
-S07,Magnesium chloride hexahydrate,Salt hydrates,104.0,1.93,1.237,poor,HCl release / deliquescence,0.498
+S09,Lithium hydroxide monohydrate,Salt hydrates,120.0,2.75,1.5,moderate,cost,0.761
+S04,Sodium carbonate decahydrate,Salt hydrates,91.339,2.716,1.861,moderate,low melting point of hydrate (~32 C),0.747
+S03,Copper sulfate pentahydrate,Salt hydrates,124.157,2.744,1.198,moderate,cost,0.735
+S01,Magnesium sulfate heptahydrate,Salt hydrates,105.093,2.288,1.362,poor,slow hydration / agglomeration,0.564
+S07,Magnesium chloride hexahydrate,Salt hydrates,104.0,1.93,1.237,poor,HCl release / deliquescence,0.497
 S11,Lithium bromide monohydrate,Salt hydrates,110.0,2.01,0.753,unknown,price,0.497
 P01,Zeolite 13X - water,Sorption,180.0,0.637,,very good,low energy density / high charging T,0.443
 S12,Calcium chloride dihydrate,Salt hydrates,111.0,1.54,0.837,unknown,deliquescence / higher hydrates,0.439
-A01,Strontium chloride ammoniate,Ammoniates,90.0,,0.984,good,NH3 toxicity,0.346
+A01,Strontium chloride ammoniate,Ammoniates,92.0,,1.631,good,NH3 toxicity,0.419
 P03,Sodium hydroxide - water,Sorption,95.0,0.576,,good,corrosive liquid,0.332
 P02,Silica gel - water,Sorption,90.0,0.18,,very good,low energy density,0.326
 L02,LiBr-H2O absorption (with crystallization),Sorption,93.0,1.4,,unknown,,0.299
