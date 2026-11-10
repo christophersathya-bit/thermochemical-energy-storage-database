@@ -1,0 +1,395 @@
+<title>TCES Materials Explorer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lab-notebook tool — header with counts, two views (Explore: filters + chart + table; Find: inputs + ranked shortlist) */
+:root{
+  --bg:#f5f6f4; --panel:#ffffff; --ink:#1b2321; --muted:#5d6966; --line:#d9dedb; --soft:#eceeec;
+  --accent:#c2410c; --accent-ink:#ffffff; --focus:#0e7490;
+  --g1:#0e7490; --g2:#7c3aed; --g3:#15803d; --g4:#b45309; --g5:#be123c; --g6:#475569;
+  --ok:#15803d; --warn:#b45309; --bad:#b91c1c;
+  --f-display:"Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121614; --panel:#1a201e; --ink:#e7ece9; --muted:#9aa7a2; --line:#2e3734; --soft:#222a27;
+  --accent:#fb923c; --accent-ink:#1a120b; --focus:#67e8f9;
+  --g1:#22d3ee; --g2:#a78bfa; --g3:#4ade80; --g4:#fbbf24; --g5:#fb7185; --g6:#94a3b8;
+  --ok:#4ade80; --warn:#fbbf24; --bad:#f87171; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614; --panel:#1a201e; --ink:#e7ece9; --muted:#9aa7a2; --line:#2e3734; --soft:#222a27;
+  --accent:#fb923c; --accent-ink:#1a120b; --focus:#67e8f9;
+  --g1:#22d3ee; --g2:#a78bfa; --g3:#4ade80; --g4:#fbbf24; --g5:#fb7185; --g6:#94a3b8;
+  --ok:#4ade80; --warn:#fbbf24; --bad:#f87171; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:20px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:700}
+h2{font-size:1.15rem;font-weight:600}
+h3{font-size:1rem;font-weight:600}
+.mono,td.num,.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+header{display:grid;gap:10px}
+.lede{color:var(--muted);max-width:70ch;margin:0}
+.stats{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.9rem;color:var(--muted)}
+.stats b{font-family:var(--f-mono);color:var(--ink);font-weight:500;font-size:1.05rem}
+nav.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line)}
+nav.tabs a{padding:10px 16px;text-decoration:none;color:var(--muted);font-weight:600;border-bottom:3px solid transparent;margin-bottom:-1px}
+nav.tabs a[aria-current="page"]{color:var(--ink);border-color:var(--accent)}
+a{color:var(--focus)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
+.explore{display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.explore{grid-template-columns:1fr}}
+.filters{display:grid;gap:16px;position:sticky;top:max(12px,env(safe-area-inset-top,0px))}
+@media (max-width:860px){.filters{position:static}}
+.fgroup{display:grid;gap:6px}
+.label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:.82rem;cursor:pointer;background:var(--panel);color:var(--ink)}
+.chip[aria-pressed="false"]{opacity:.45}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+input[type=number],select,input[type=search]{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:6px 8px;min-width:0}
+input[type=number]{width:90px}
+input[type=search]{width:100%}
+label.check{display:flex;gap:8px;align-items:flex-start;font-size:.9rem;cursor:pointer}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{font:inherit;font-size:.82rem;border:0;background:var(--panel);color:var(--muted);padding:5px 10px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.main{display:grid;gap:20px;min-width:0}
+.charthead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font:11px var(--f-mono)}
+.chart .axis-title{fill:var(--ink);font:600 12px var(--f-body)}
+.chart line.grid{stroke:var(--soft)}
+.chart .band{fill:var(--accent);opacity:.08}
+.chart .bandlabel{fill:var(--accent);font:11px var(--f-body)}
+.chart circle{cursor:pointer;stroke-width:1.6}
+.chart circle:hover,.chart circle.sel{stroke:var(--ink);stroke-width:2.5}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.82rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.hollow{background:transparent!important;border:2px solid var(--muted)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;cursor:pointer;user-select:none}
+th[aria-sort] ::after{content:""}
+td.num,th.num{text-align:right}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--soft)}
+tbody tr.sel{background:var(--soft);box-shadow:inset 3px 0 0 var(--accent)}
+.pill{display:inline-block;font-size:.72rem;font-weight:600;padding:1px 7px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.pill.ok{color:var(--ok)}.pill.warn{color:var(--warn)}.pill.bad{color:var(--bad)}.pill.mute{color:var(--muted)}
+.detail{display:grid;gap:14px}
+.detail .kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px 18px}
+.kv div{display:grid;gap:1px;min-width:0}
+.kv .v{font-family:var(--f-mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.reaction{font-family:var(--f-mono);background:var(--soft);padding:8px 10px;border-radius:6px;overflow-x:auto;white-space:nowrap}
+.muted{color:var(--muted)}
+.small{font-size:.84rem}
+ul.warns{margin:0;padding-left:18px;display:grid;gap:4px}
+ul.warns li.bad{color:var(--bad)} ul.warns li.warn{color:var(--warn)} ul.warns li.ok{color:var(--ok)}
+.find{display:grid;grid-template-columns:320px minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.find{grid-template-columns:1fr}}
+.form{display:grid;gap:14px}
+.results{display:grid;gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;min-width:0}
+.card .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.rank{font-family:var(--f-mono);color:var(--accent);font-weight:500;margin-right:8px}
+.metrics{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.86rem}
+.metrics b{font-family:var(--f-mono);font-weight:500}
+.btn{font:inherit;font-weight:600;border:0;border-radius:6px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.compare{overflow-x:auto}
+.empty{color:var(--muted);padding:12px 0}
+footer{color:var(--muted);font-size:.84rem;display:grid;gap:6px;max-width:90ch}
+@media (prefers-reduced-motion:no-preference){.card,.detail{animation:in .18s ease-out}@keyframes in{from{transform:translateY(3px)}to{transform:none}}}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>TCES Materials Explorer</h1>
+  <p class="lede">Thermochemical energy storage materials with their storage temperature, energy density, cyclability, cost and hazards. Every value carries its source and a verification status.</p>
+  <div class="stats" id="stats"></div>
+</header>
+
+<nav class="tabs" aria-label="Views">
+  <a href="#explore" id="tab-explore">Explore</a>
+  <a href="#find" id="tab-find">Find a material</a>
+</nav>
+
+<section id="view-explore" class="explore">
+  <aside class="panel filters" aria-label="Filters">
+    <div class="fgroup"><span class="label">Search</span><input type="search" id="q" placeholder="Name, formula or id"></div>
+    <div class="fgroup"><span class="label">Material group</span><div class="chips" id="groupchips"></div></div>
+    <div class="fgroup"><span class="label">Storage temperature (°C)</span>
+      <div class="row"><input type="number" id="tmin" value="0" aria-label="Minimum temperature"> to <input type="number" id="tmax" value="2000" aria-label="Maximum temperature"></div></div>
+    <div class="fgroup"><span class="label">Show</span>
+      <label class="check"><input type="checkbox" id="onlyver"> Only entries checked against a source</label>
+      <label class="check"><input type="checkbox" id="nodanger"> Hide GHS "Danger" materials</label>
+      <label class="check"><input type="checkbox" id="haveprice"> Only materials with a price</label>
+    </div>
+    <div class="fgroup"><span class="label">Compare</span><p class="small muted" style="margin:0" id="cmpnote">Tick up to 4 rows in the table.</p><button class="btn ghost" id="cmpclear" type="button">Clear comparison</button></div>
+  </aside>
+
+  <div class="main">
+    <div class="panel" style="display:grid;gap:12px">
+      <div class="charthead">
+        <h2 id="charttitle">Storage temperature vs energy density</h2>
+        <div class="row">
+          <div class="seg" role="group" aria-label="Energy basis"><button type="button" id="y-vol" aria-pressed="true">GJ/m³</button><button type="button" id="y-grav" aria-pressed="false">MJ/kg</button></div>
+          <div class="seg" role="group" aria-label="Temperature range"><button type="button" id="x-low" aria-pressed="false">≤ 250 °C</button><button type="button" id="x-all" aria-pressed="true">All</button></div>
+        </div>
+      </div>
+      <svg class="chart" id="chart" viewBox="0 0 860 420" role="img" aria-label="Scatter plot of storage temperature against energy density"></svg>
+      <div class="legend" id="legend"></div>
+      <p class="small muted" style="margin:0">Hollow markers: value not yet re-checked against a primary source. Shaded band: material-level target of 400–600 kWh/m³ (1.44–2.16 GJ/m³) for domestic storage (Kiyabu et al. 2026). Click a point for details.</p>
+    </div>
+
+    <div class="panel detail" id="detail" hidden></div>
+    <div class="panel compare" id="compare" hidden></div>
+
+    <div class="panel" style="display:grid;gap:10px">
+      <div class="charthead"><h2>Materials <span class="muted mono" id="count"></span></h2></div>
+      <div class="tablewrap"><table id="tbl"><thead><tr id="thead"></tr></thead><tbody id="tbody"></tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<section id="view-find" class="find" hidden>
+  <form class="panel form" id="findform" autocomplete="off">
+    <h2>Your application</h2>
+    <div class="fgroup"><label class="label" for="fsrc">Heat source temperature (°C)</label><input type="number" id="fsrc" value="120" min="0" max="2000"><span class="small muted">The highest temperature you can charge with, e.g. solar collector, waste heat, CSP.</span></div>
+    <div class="fgroup"><label class="label" for="frel">Heat needed at (°C, optional)</label><input type="number" id="frel" value="40" min="0" max="2000"><span class="small muted">Minimum discharge temperature, e.g. 40 °C for floor heating, 60 °C for hot water.</span></div>
+    <div class="fgroup"><span class="label">Rank by</span><div class="seg" role="group"><button type="button" id="r-vol" aria-pressed="true">Volume (GJ/m³)</button><button type="button" id="r-grav" aria-pressed="false">Mass (MJ/kg)</button></div></div>
+    <div class="fgroup"><span class="label">System</span><div class="seg" role="group"><button type="button" id="s-closed" aria-pressed="true">Closed</button><button type="button" id="s-open" aria-pressed="false">Open (ambient air)</button></div></div>
+    <div class="fgroup"><label class="label" for="fprice">Max material cost (€/kWh, optional)</label><input type="number" id="fprice" placeholder="any" min="0" step="0.5"><span class="small muted">Only 7 salts have a sourced price; others are kept and flagged.</span></div>
+    <label class="check"><input type="checkbox" id="fsafe"> Exclude GHS "Danger" materials and toxic working fluids</label>
+    <label class="check"><input type="checkbox" id="fver"> Only entries checked against a source</label>
+    <label class="check"><input type="checkbox" id="fdemo"> Exclude gas-phase reactions (industrial only)</label>
+    <p class="small muted" style="margin:0">Charging must be possible at least 10 °C below the source. Entries without a reported temperature are listed separately.</p>
+  </form>
+  <div class="results" id="results"></div>
+</section>
+
+<footer>
+  <div>Sources: NIST-JANAF, NBS tables and 20 papers (see <code>data/references.csv</code> in the repository). Prices: Donkers et al. 2017, Table 3 (2017 bulk prices). Hazards: PubChem GHS classification (majority of ECHA notifications), retrieved __DATE__.</div>
+  <div>Energy densities are given on different bases (crystal, bed, solution); the basis is shown with each value. Temperatures are equilibrium, charging or heat-release values depending on the source; the basis is shown in the details.</div>
+</footer>
+</div>
+
+<script>
+const DATA = __DATA__;
+const REFS = __REFS__;
+const GROUPS = [
+  {k:"hyd", name:"Salt hydrates", c:"--g1", m:["Salt hydrate dehydration"]},
+  {k:"comp", name:"Composites", c:"--g2", m:["Salt in porous matrix"]},
+  {k:"sorp", name:"Absorption & adsorption", c:"--g3", m:["Liquid absorption","Physical adsorption"]},
+  {k:"hc", name:"Hydroxides & carbonates", c:"--g4", m:["Hydroxide dehydration","Carbonate decarbonation"]},
+  {k:"redox", name:"Oxides & hydrides", c:"--g5", m:["Metal oxide redox","Metal hydride"]},
+  {k:"gas", name:"Ammoniates & gas-phase", c:"--g6", m:["Ammoniation","Gas-phase reaction"]},
+];
+const groupOf = m => GROUPS.find(g => g.m.includes(m)) || GROUPS[5];
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmt = (v, d=2) => { if(v===null||v===undefined||v==="") return "–"; if(typeof v!=="number") return v; let s = Math.abs(v)>=100 ? v.toFixed(0) : v.toFixed(d); if(s.includes(".")) s=s.replace(/0+$/,"").replace(/\.$/,""); return s; };
+const esc = s => String(s??"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const verified = d => /^verified|computed from NIST|cross-checked/.test(d.verification||"");
+const verPill = d => {
+  const v = d.verification||"";
+  if (/ScienceDirect/.test(v) && /^verified/.test(v)) return '<span class="pill ok">paper (ScienceDirect)</span>';
+  if (/^verified \(open/.test(v)) return '<span class="pill ok">paper (open access)</span>';
+  if (/computed from NIST/.test(v)) return '<span class="pill ok">NIST-JANAF</span>';
+  if (/cross-checked/.test(v)) return '<span class="pill ok">NBS + paper check</span>';
+  if (/NBS/.test(v)) return '<span class="pill warn">NBS, not re-read</span>';
+  if (/secondary/.test(v)) return '<span class="pill warn">secondary citation</span>';
+  return '<span class="pill bad">not verified</span>';
+};
+const hazPill = d => d.GHS_signal_word==="Danger" ? '<span class="pill bad">Danger</span>' : d.GHS_signal_word==="Warning" ? '<span class="pill warn">Warning</span>' : d.hazard_compound ? '<span class="pill mute">not classified</span>' : '<span class="pill mute">no data</span>';
+
+/* ---------- state ---------- */
+const S = {groups:new Set(GROUPS.map(g=>g.k)), y:"vol", xlow:false, sort:{k:"ED_vol_GJ_m3", dir:-1}, sel:null, cmp:new Set()};
+const $ = id => document.getElementById(id);
+
+/* ---------- header ---------- */
+(function(){
+  const n=DATA.length, v=DATA.filter(verified).length, p=DATA.filter(d=>d.price_EUR_kg!=null).length, h=DATA.filter(d=>d.GHS_signal_word).length;
+  $("stats").innerHTML = `<span><b>${n}</b> materials</span><span><b>${GROUPS.length}</b> material groups</span><span><b>${v}</b> checked against a source</span><span><b>${h}</b> with hazard class</span><span><b>${p}</b> with price</span><span><b>${Object.keys(REFS).length}</b> references</span>`;
+})();
+
+/* ---------- filters ---------- */
+$("groupchips").innerHTML = GROUPS.map(g=>`<button type="button" class="chip" aria-pressed="true" data-k="${g.k}"><span class="dot" style="background:var(${g.c})"></span>${g.name} <span class="muted mono">${DATA.filter(d=>groupOf(d.mechanism)===g).length}</span></button>`).join("");
+$("groupchips").addEventListener("click", e=>{const b=e.target.closest(".chip"); if(!b) return; const k=b.dataset.k; S.groups.has(k)?S.groups.delete(k):S.groups.add(k); b.setAttribute("aria-pressed", S.groups.has(k)); render();});
+["q","tmin","tmax","onlyver","nodanger","haveprice"].forEach(id=>$(id).addEventListener("input", render));
+const seg = (a,b,fn) => { $(a).onclick=()=>{$(a).setAttribute("aria-pressed","true");$(b).setAttribute("aria-pressed","false");fn(a);}; $(b).onclick=()=>{$(b).setAttribute("aria-pressed","true");$(a).setAttribute("aria-pressed","false");fn(b);}; };
+seg("y-vol","y-grav", w=>{S.y = w==="y-vol"?"vol":"grav"; render();});
+seg("x-low","x-all", w=>{S.xlow = w==="x-low"; render();});
+$("cmpclear").onclick=()=>{S.cmp.clear(); render();};
+
+function filtered(){
+  const q=$("q").value.trim().toLowerCase(), tmin=+$("tmin").value||0, tmax=$("tmax").value===""?1e9:+$("tmax").value;
+  return DATA.filter(d=>{
+    if(!S.groups.has(groupOf(d.mechanism).k)) return false;
+    if(q && !(`${d.id} ${d.name} ${d.reaction} ${d.mechanism}`.toLowerCase().includes(q))) return false;
+    if(d.T_operating_C!=null && (d.T_operating_C<tmin || d.T_operating_C>tmax)) return false;
+    if($("onlyver").checked && !verified(d)) return false;
+    if($("nodanger").checked && d.GHS_signal_word==="Danger") return false;
+    if($("haveprice").checked && d.price_EUR_kg==null) return false;
+    return true;
+  });
+}
+
+/* ---------- chart ---------- */
+function chart(rows){
+  const svg=$("chart"), W=860, H=420, m={l:58,r:18,t:16,b:46};
+  const yk = S.y==="vol" ? "ED_vol_GJ_m3" : "ED_grav_MJ_kg";
+  const pts = rows.filter(d=>d.T_operating_C!=null && d[yk]!=null && (!S.xlow || d.T_operating_C<=250));
+  const xmax = S.xlow ? 250 : Math.max(200, Math.ceil(Math.max(...pts.map(d=>d.T_operating_C), 100)/200)*200);
+  const ymax = Math.max(1, Math.ceil(Math.max(...pts.map(d=>d[yk]), 1)));
+  const X=v=>m.l+(v/xmax)*(W-m.l-m.r), Y=v=>H-m.b-(v/ymax)*(H-m.t-m.b);
+  const xstep = S.xlow?50:(xmax>1000?200:100), ystep = ymax>6?2:1;
+  let s="";
+  for(let v=0; v<=ymax+1e-9; v+=ystep){ s+=`<line class="grid" x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l-8}" y="${Y(v)+4}" text-anchor="end">${v}</text>`; }
+  for(let v=0; v<=xmax+1e-9; v+=xstep){ s+=`<line class="grid" y1="${m.t}" y2="${H-m.b}" x1="${X(v)}" x2="${X(v)}"/><text x="${X(v)}" y="${H-m.b+16}" text-anchor="middle">${v}</text>`; }
+  if(S.y==="vol"){ const y1=Math.min(2.16,ymax); s+=`<rect class="band" x="${m.l}" width="${W-m.l-m.r}" y="${Y(y1)}" height="${Y(1.44)-Y(y1)}"/><text class="bandlabel" x="${W-m.r-6}" y="${Y(y1)-5}" text-anchor="end">target 400–600 kWh/m³</text>`; }
+  s+=`<text class="axis-title" x="${(m.l+W-m.r)/2}" y="${H-8}" text-anchor="middle">Storage (charging) temperature, °C</text>`;
+  s+=`<text class="axis-title" transform="translate(16 ${(m.t+H-m.b)/2}) rotate(-90)" text-anchor="middle">${S.y==="vol"?"Energy density, GJ/m³":"Energy density, MJ/kg"}</text>`;
+  for(const d of pts){ const g=groupOf(d.mechanism), col=`var(${g.c})`, hol=!verified(d);
+    s+=`<circle data-id="${d.id}" class="${S.sel===d.id?"sel":""}" cx="${X(d.T_operating_C).toFixed(1)}" cy="${Y(d[yk]).toFixed(1)}" r="6" style="fill:${hol?"var(--panel)":col};stroke:${col}"><title>${esc(d.id+" "+d.name)} · ${fmt(d.T_operating_C)} °C · ${fmt(d[yk])} ${S.y==="vol"?"GJ/m³ ("+d.ED_vol_basis+")":"MJ/kg"}</title></circle>`; }
+  svg.innerHTML=s;
+  $("charttitle").textContent = `Storage temperature vs energy density · ${pts.length} shown`;
+  const missing = rows.length-pts.length;
+  $("legend").innerHTML = GROUPS.map(g=>`<span><span class="dot" style="background:var(${g.c})"></span>${g.name}</span>`).join("") + `<span><span class="dot hollow"></span>not re-checked</span>` + (missing?`<span class="mono">${missing} without ${S.y==="vol"?"GJ/m³":"MJ/kg"} or temperature${S.xlow?" / above 250 °C":""}</span>`:"");
+}
+$("chart").addEventListener("click", e=>{const c=e.target.closest("circle"); if(c) select(c.dataset.id, true);});
+
+/* ---------- table ---------- */
+const COLS = [
+  {k:"cmp", t:"", w:1},
+  {k:"id", t:"ID"}, {k:"name", t:"Material"}, {k:"group", t:"Group"},
+  {k:"T_operating_C", t:"T °C", num:1}, {k:"ED_vol_GJ_m3", t:"GJ/m³", num:1}, {k:"ED_vol_basis", t:"basis"},
+  {k:"ED_grav_MJ_kg", t:"MJ/kg", num:1}, {k:"price_EUR_kWh", t:"€/kWh", num:1}, {k:"cyclability", t:"Cycling"},
+  {k:"GHS_signal_word", t:"Hazard"}, {k:"verification", t:"Source check"}];
+$("thead").innerHTML = COLS.map(c=>`<th class="${c.num?"num":""}" data-k="${c.k}" scope="col">${c.t}</th>`).join("");
+$("thead").addEventListener("click", e=>{const th=e.target.closest("th"); if(!th||th.dataset.k==="cmp") return; const k=th.dataset.k; S.sort = {k, dir: S.sort.k===k ? -S.sort.dir : (["name","id","group","ED_vol_basis","cyclability","verification","GHS_signal_word"].includes(k)?1:-1)}; render();});
+function val(d,k){ return k==="group" ? groupOf(d.mechanism).name : d[k]; }
+function table(rows){
+  const {k,dir}=S.sort;
+  rows=[...rows].sort((a,b)=>{const x=val(a,k), y=val(b,k); if(x==null&&y==null) return 0; if(x==null) return 1; if(y==null) return -1; return (typeof x==="number"? x-y : String(x).localeCompare(String(y)))*dir;});
+  document.querySelectorAll("#thead th").forEach(th=>{ if(th.dataset.k===k) th.setAttribute("aria-sort", dir>0?"ascending":"descending"); else th.removeAttribute("aria-sort"); th.textContent = COLS.find(c=>c.k===th.dataset.k).t + (th.dataset.k===k ? (dir>0?" ↑":" ↓") : ""); });
+  $("tbody").innerHTML = rows.map(d=>`<tr data-id="${d.id}" class="${S.sel===d.id?"sel":""}">
+    <td><input type="checkbox" aria-label="Compare ${esc(d.name)}" data-cmp="${d.id}" ${S.cmp.has(d.id)?"checked":""} ${!S.cmp.has(d.id)&&S.cmp.size>=4?"disabled":""}></td>
+    <td class="mono">${d.id}</td><td>${esc(d.name)}</td>
+    <td style="white-space:nowrap"><span class="row" style="gap:6px;flex-wrap:nowrap"><span class="dot" style="background:var(${groupOf(d.mechanism).c})"></span><span class="small">${groupOf(d.mechanism).name}</span></span></td>
+    <td class="num">${fmt(d.T_operating_C,0)}</td><td class="num">${fmt(d.ED_vol_GJ_m3)}</td><td class="small muted">${esc(d.ED_vol_basis||"")}</td>
+    <td class="num">${fmt(d.ED_grav_MJ_kg)}</td><td class="num">${fmt(d.price_EUR_kWh)}</td><td class="small">${esc(d.cyclability||"")}</td>
+    <td>${hazPill(d)}</td><td>${verPill(d)}</td></tr>`).join("");
+  $("count").textContent = `${rows.length} of ${DATA.length}`;
+}
+$("tbody").addEventListener("click", e=>{
+  const cb=e.target.closest("input[data-cmp]");
+  if(cb){ const id=cb.dataset.cmp; cb.checked?S.cmp.add(id):S.cmp.delete(id); render(); return; }
+  const tr=e.target.closest("tr"); if(tr) select(tr.dataset.id, true);
+});
+
+/* ---------- detail ---------- */
+function warnings(d, opts={}){
+  const w=[];
+  if(d.GHS_signal_word==="Danger") w.push(["bad", `GHS Danger (${d.hazard_compound}): ${d.GHS_pictograms||""}${d.GHS_H_statements?" · "+d.GHS_H_statements:""}`]);
+  else if(d.GHS_signal_word==="Warning") w.push(["warn", `GHS Warning (${d.hazard_compound}): ${d.GHS_pictograms||""}${d.GHS_H_statements?" · "+d.GHS_H_statements:""}`]);
+  if(d.working_fluid_hazard) w.push(["bad", `Working fluid: ${d.working_fluid_hazard}`]);
+  if(d.LD50_mg_kg!=null && d.LD50_mg_kg<500) w.push(["bad", `Oral LD50 ${d.LD50_mg_kg} mg/kg (rat)`]);
+  if(d.DRH_pct!=null) w.push([opts.open?"bad":"warn", `Deliquesces above ${d.DRH_pct} % relative humidity at 25 °C${opts.open?" (risk in an open system)":""}`]);
+  if(d.main_issue) w.push(["warn", `Known issue: ${d.main_issue}`]);
+  if(d.cyclability==="poor") w.push(["bad","Poor cycling stability reported"]);
+  else if(!d.cyclability || d.cyclability==="unknown") w.push(["warn","Cycling stability not reported"]);
+  if(/T_eq at 1 bar/.test(d.T_basis||"")) w.push(["warn","Temperature is the 1-bar equilibrium value; practical charging needs a margin above it"]);
+  if(/heat-release T/.test(d.T_basis||"")) w.push(["warn","Only the heat-release temperature is reported; charging temperature unknown"]);
+  if(!verified(d)) w.push(["warn","Data not yet re-checked against the primary source"]);
+  if(d.price_EUR_kWh!=null) w.push([d.price_EUR_kWh>15?"warn":"ok", `Material cost ≈ €${fmt(d.price_EUR_kWh)} per kWh stored (2017 bulk price; DOE target for the full composite: < $15/kWh)`]);
+  return w;
+}
+function refLinks(ids){ return (ids||"").split(";").filter(Boolean).map(r=>{const x=REFS[r.trim()]; return x?`<a href="${esc(x.url)}" target="_blank" rel="noopener" title="${esc(x.cite)}">${r.trim()}</a>`:esc(r);}).join(", "); }
+function detail(d){
+  const el=$("detail"); if(!d){el.hidden=true; return;}
+  const g=groupOf(d.mechanism);
+  const kv=[["Storage temperature",`${fmt(d.T_operating_C,0)} °C`],["Temperature basis",d.T_basis],["Equilibrium T (1 bar)",d.T_eq_C!=null?`${fmt(d.T_eq_C,0)} °C`:"–"],["Heat release T",d.T_release_C!=null?`${fmt(d.T_release_C,0)} °C`:"–"],
+    ["Energy density",`${fmt(d.ED_vol_GJ_m3)} GJ/m³`],["Volume basis",d.ED_vol_basis||"–"],["Energy density",`${fmt(d.ED_grav_MJ_kg)} MJ/kg`],["Bed energy density",d.ED_bed_GJ_m3!=null?`${fmt(d.ED_bed_GJ_m3)} GJ/m³`:"–"],
+    ["ΔH (reaction)",d.dH_kJ_mol_rxn!=null?`${fmt(d.dH_kJ_mol_rxn,1)} kJ/mol`:"–"],["ΔS (reaction)",d.dS_J_molK_rxn!=null?`${fmt(d.dS_J_molK_rxn,1)} J/(mol·K)`:"–"],
+    ["Density (discharged)",d.density_discharged_g_cm3!=null?`${fmt(d.density_discharged_g_cm3)} g/cm³`:"–"],["Cp at 298 K",d.Cp298_discharged_J_kgK!=null?`${fmt(d.Cp298_discharged_J_kgK,0)} J/(kg·K)`:"–"],
+    ["Volume change",d.volume_decrease_pct!=null?`−${fmt(d.volume_decrease_pct,0)} %`:(d.volume_change_calc_pct!=null?`${fmt(d.volume_change_calc_pct,0)} % (calc.)`:"–")],["Deliquescence RH",d.DRH_pct!=null?`${fmt(d.DRH_pct,0)} %`:"–"],
+    ["Price",d.price_EUR_kg!=null?`€${fmt(d.price_EUR_kg)}/kg · €${fmt(d.price_EUR_kWh)}/kWh`:"not sourced"],["Cycling",d.cyclability||"–"],["Working gas",d.working_gas||"–"],["Oral LD50",d.LD50_mg_kg!=null?`${fmt(d.LD50_mg_kg,0)} mg/kg`:"–"]];
+  el.innerHTML = `<div class="charthead"><div><span class="label">${d.id} · ${esc(g.name)} · ${esc(d.mechanism)}</span><h2>${esc(d.name)}</h2></div><div class="row">${verPill(d)} ${hazPill(d)} <button class="btn ghost" type="button" id="closedetail">Close</button></div></div>
+    <div class="reaction">${esc(d.reaction)}</div>
+    <div class="kv">${kv.map(([k,v])=>`<div><span class="label">${k}</span><span class="v">${esc(v)}</span></div>`).join("")}</div>
+    <div><span class="label">Watch out for</span><ul class="warns">${warnings(d).map(([c,t])=>`<li class="${c}">${esc(t)}</li>`).join("")||"<li>Nothing flagged</li>"}</ul></div>
+    <div class="small"><span class="label">Sources</span><div>${refLinks(d.ref_ids)}${d.source_location?" · "+esc(d.source_location):""}</div>${d.notes?`<div class="muted" style="margin-top:4px">${esc(d.notes)}</div>`:""}</div>`;
+  el.hidden=false; $("closedetail").onclick=()=>{S.sel=null; render();};
+}
+function select(id, scroll){ S.sel=id; render(); if(scroll) $("detail").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth", block:"nearest"}); }
+
+/* ---------- compare ---------- */
+function compare(){
+  const el=$("compare"); const ds=[...S.cmp].map(id=>DATA.find(d=>d.id===id)).filter(Boolean);
+  $("cmpnote").textContent = ds.length? `${ds.length} selected (max 4).` : "Tick up to 4 rows in the table.";
+  if(ds.length<2){el.hidden=true; return;}
+  const rows=[["Group",d=>groupOf(d.mechanism).name],["Reaction",d=>d.reaction],["Storage T, °C",d=>fmt(d.T_operating_C,0)],["Heat release T, °C",d=>fmt(d.T_release_C,0)],["GJ/m³",d=>`${fmt(d.ED_vol_GJ_m3)} (${d.ED_vol_basis||"–"})`],["MJ/kg",d=>fmt(d.ED_grav_MJ_kg)],["ΔH, kJ/mol",d=>fmt(d.dH_kJ_mol_rxn,1)],["€/kWh (2017)",d=>fmt(d.price_EUR_kWh)],["Deliquescence RH, %",d=>fmt(d.DRH_pct,0)],["Cycling",d=>d.cyclability||"–"],["Hazard",d=>d.GHS_signal_word||"–"],["Main issue",d=>d.main_issue||"–"],["Source check",d=>verified(d)?"yes":"no"]];
+  el.innerHTML = `<h2 style="margin-bottom:8px">Comparison</h2><div class="tablewrap"><table><thead><tr><th scope="col"></th>${ds.map(d=>`<th scope="col">${d.id} ${esc(d.name)}</th>`).join("")}</tr></thead><tbody>${rows.map(([k,f])=>`<tr style="cursor:default"><th scope="row" style="cursor:default">${k}</th>${ds.map(d=>`<td>${esc(f(d))}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+  el.hidden=false;
+}
+
+function render(){ const r=filtered(); chart(r); table(r); detail(DATA.find(d=>d.id===S.sel)); compare(); }
+
+/* ---------- finder ---------- */
+const F={rank:"vol", open:false};
+seg("r-vol","r-grav", w=>{F.rank = w==="r-vol"?"vol":"grav"; find();});
+seg("s-closed","s-open", w=>{F.open = w==="s-open"; find();});
+["fsrc","frel","fprice","fsafe","fver","fdemo"].forEach(id=>$(id).addEventListener("input", find));
+$("findform").addEventListener("submit", e=>e.preventDefault());
+function find(){
+  const src=+$("fsrc").value, rel=$("frel").value===""?null:+$("frel").value, pmax=$("fprice").value===""?null:+$("fprice").value;
+  const yk = F.rank==="vol"?"ED_vol_GJ_m3":"ED_grav_MJ_kg", unit = F.rank==="vol"?"GJ/m³":"MJ/kg";
+  const out=[], noT=[], why={hot:0,rel:0,price:0,safe:0,ver:0};
+  for(const d of DATA){
+    if($("fdemo").checked && d.mechanism==="Gas-phase reaction") continue;
+    if($("fsafe").checked && (d.GHS_signal_word==="Danger" || d.working_fluid_hazard)){why.safe++; continue;}
+    if($("fver").checked && !verified(d)){why.ver++; continue;}
+    if(pmax!=null && d.price_EUR_kWh!=null && d.price_EUR_kWh>pmax){why.price++; continue;}
+    if(d.T_operating_C==null){ noT.push(d); continue; }
+    const chargeT = /heat-release T/.test(d.T_basis||"") ? null : d.T_operating_C;
+    if(chargeT!=null && chargeT > src-10){why.hot++; continue;}
+    if(chargeT==null && d.T_operating_C > src-10){why.hot++; continue;}
+    if(rel!=null && d.T_release_C!=null && d.T_release_C < rel){why.rel++; continue;}
+    out.push(d);
+  }
+  out.sort((a,b)=>(b[yk]??-1)-(a[yk]??-1));
+  const top=out.slice(0,12);
+  const excl = Object.entries({hot:"need a higher charging temperature",rel:"release heat below "+rel+" °C",price:"cost more than €"+pmax+"/kWh",safe:"hazard filter",ver:"not re-checked"}).filter(([k])=>why[k]).map(([k,t])=>`${why[k]} ${t}`).join(" · ");
+  let h = `<div class="panel" style="display:grid;gap:6px"><h2>${out.length} materials can be charged with ${src} °C heat</h2><p class="small muted" style="margin:0">Ranked by energy density per ${F.rank==="vol"?"volume":"mass"}. Excluded: ${excl||"none"}.${rel!=null?" Materials without a reported heat-release temperature are kept and flagged.":""} Compare values on the same basis (crystal, bed or solution) before deciding.</p></div>`;
+  if(!top.length) h += `<p class="empty">No material in the database fits. Raise the heat source temperature or relax a filter.</p>`;
+  top.forEach((d,i)=>{
+    const w=warnings(d,{open:F.open}); if(rel!=null && d.T_release_C==null) w.unshift(["warn","Heat-release temperature not reported"]);
+    if(pmax!=null && d.price_EUR_kWh==null) w.push(["warn","No sourced price"]);
+    h += `<article class="card"><div class="top"><h3><span class="rank">#${i+1}</span>${esc(d.name)} <span class="muted mono small">${d.id}</span></h3><div class="row">${verPill(d)} ${hazPill(d)}</div></div>
+      <div class="metrics"><span><b>${fmt(d[yk])}</b> ${unit}${F.rank==="vol"&&d.ED_vol_basis?` <span class="muted">(${esc(d.ED_vol_basis)})</span>`:""}</span><span>charge <b>${fmt(d.T_operating_C,0)}</b> °C</span>${d.T_release_C!=null?`<span>release <b>${fmt(d.T_release_C,0)}</b> °C</span>`:""}<span>${esc(groupOf(d.mechanism).name)}</span><span>cycling <b>${esc(d.cyclability||"–")}</b></span>${d.price_EUR_kWh!=null?`<span><b>€${fmt(d.price_EUR_kWh)}</b>/kWh</span>`:""}</div>
+      <ul class="warns small">${w.slice(0,5).map(([c,t])=>`<li class="${c}">${esc(t)}</li>`).join("")}</ul>
+      <div><button class="btn ghost" type="button" data-open="${d.id}">Open details</button></div></article>`;
+  });
+  if(noT.length) h += `<div class="panel small"><span class="label">No reported temperature, check manually</span><div>${noT.map(d=>`${d.id} ${esc(d.name)} (${fmt(d[yk])} ${unit})`).join(" · ")}</div></div>`;
+  $("results").innerHTML=h;
+}
+$("results").addEventListener("click", e=>{const b=e.target.closest("[data-open]"); if(!b) return; location.hash="#explore"; S.sel=b.dataset.open; route(); select(b.dataset.open,true);});
+
+/* ---------- routing ---------- */
+function route(){
+  const v = location.hash==="#find" ? "find" : "explore";
+  $("view-explore").hidden = v!=="explore"; $("view-find").hidden = v!=="find";
+  $("tab-explore").toggleAttribute("aria-current", v==="explore"); $("tab-find").toggleAttribute("aria-current", v==="find");
+  if(v==="explore") $("tab-explore").setAttribute("aria-current","page"); else $("tab-find").setAttribute("aria-current","page");
+}
+window.addEventListener("hashchange", route);
+route(); render(); find();
+</script>
