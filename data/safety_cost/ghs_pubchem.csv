@@ -1,0 +1,49 @@
+compound,pubchem_cid,signal_word,pictograms,H_statements_majority
+calcium hydroxide,6093208,Danger,Corrosive/Irritant,H318
+magnesium hydroxide,73981,,,
+calcium carbonate,10112,,,
+magnesium carbonate,11029,,,
+strontium carbonate,15407,,,
+barium carbonate,10563,Warning,Irritant,H302
+tricobalt tetraoxide,6432046,Danger,Acute Toxic/Health Hazard,
+manganese(III) oxide,14824,Warning,Irritant,H302 H312 H315 H319 H332 H335
+copper(II) oxide,164827,Warning,Environmental Hazard,H400 H410
+magnesium hydride,5486771,,,
+calcium hydride,3033859,Danger,Flammable,H260
+magnesium sulfate,24083,Warning,Irritant,H302 H312 H332
+calcium sulfate,24497,Warning,Irritant,
+copper(II) sulfate,24462,Warning,Irritant/Environmental Hazard,H302 H315 H319 H400 H410
+sodium carbonate,10340,Warning,Irritant,H319
+strontium bromide,25302,Warning,Irritant,H315 H319 H335
+potassium carbonate,11430,Warning,Irritant,H319
+magnesium chloride,5360315,Danger,Corrosive/Irritant,
+sodium sulfide,237873,Danger,Corrosive/Acute Toxic/Irritant/Environmental Hazard,H301 H311 H314 H318 H400
+lithium hydroxide,3939,Danger,Corrosive/Acute Toxic/Irritant,H302 H314 H318
+strontium chloride,5362485,Danger,Corrosive/Irritant,H318
+ammonia,222,Danger,Compressed Gas/Corrosive/Acute Toxic/Environmental Hazard,H221 H314 H331 H400
+methane,297,Danger,Flammable/Compressed Gas,H220
+sulfur trioxide,24682,Danger,Corrosive/Acute Toxic/Irritant/Health Hazard/Environmental Hazard,H314 H335
+sodium hydroxide,14798,Danger,Corrosive,H314
+lithium chloride,433294,Warning,Irritant,H302 H315 H319
+lithium bromide,82050,Warning,Irritant,H302 H315 H317 H319
+calcium chloride,5284359,Warning,Irritant,H319
+lanthanum chloride,64735,Danger,Corrosive/Irritant/Environmental Hazard,H317 H318 H411
+potassium aluminum sulfate,24856,,,
+copper(II) chloride,24014,Danger,Corrosive/Irritant/Environmental Hazard,H302 H312 H315 H318 H400 H410 H411
+cobalt(II) chloride,24288,,,
+aluminum sulfate,24850,Danger,Corrosive,H318
+calcium bromide,5360316,Danger,Corrosive,H318
+cerium(IV) sulfate,159684,Danger,Corrosive/Irritant/Environmental Hazard,H314 H318 H400 H410
+potassium hydroxide,14797,Danger,Corrosive/Irritant,H302 H314
+lanthanum nitrate,25122,Danger,Oxidizer/Corrosive/Irritant/Environmental Hazard,H272 H318 H400 H410
+lithium nitrate,10129889,Danger,Oxidizer/Irritant,H272 H302 H319
+magnesium bromide,82241,Warning,Irritant,H315 H319 H335
+sodium thiosulfate,24477,,,
+zinc nitrate,24518,Danger,Oxidizer/Corrosive/Irritant/Environmental Hazard,H272 H302 H315 H318 H335 H400 H411
+strontium hydroxide,87672,Danger,Corrosive/Irritant,H314 H318
+barium hydroxide,6093286,Danger,Corrosive/Acute Toxic/Irritant,H302 H314 H318 H332
+barium peroxide,14773,Danger,Oxidizer/Irritant,H272 H302 H332
+ferric oxide,518696,Warning,Irritant/Environmental Hazard,
+"manganese(II,III) oxide",90479253,Warning,Irritant/Health Hazard,
+methanol,887,Danger,Flammable/Acute Toxic/Health Hazard,H225 H301 H311 H331 H370
+ethanol,702,Danger,Flammable,H225

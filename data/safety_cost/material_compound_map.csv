@@ -1,0 +1,82 @@
+id,hazard_compound,role
+H01,calcium hydroxide,storage material
+H02,magnesium hydroxide,storage material
+C01,calcium carbonate,storage material
+C02,magnesium carbonate,storage material
+C03,strontium carbonate,storage material
+C04,barium carbonate,storage material
+O01,tricobalt tetraoxide,storage material
+O02,manganese(III) oxide,storage material
+O03,copper(II) oxide,storage material
+M01,magnesium hydride,storage material
+M02,calcium hydride,storage material
+S01,magnesium sulfate,storage material
+S02,calcium sulfate,storage material
+S18,calcium sulfate,storage material
+S03,copper(II) sulfate,storage material
+S17,copper(II) sulfate,storage material
+S04,sodium carbonate,storage material
+S05,strontium bromide,storage material
+S19,strontium bromide,storage material
+X14,strontium bromide,storage material
+X15,strontium bromide,storage material
+X16,strontium bromide,storage material
+S06,potassium carbonate,storage material
+X17,potassium carbonate,storage material
+S07,magnesium chloride,storage material
+X13,magnesium chloride,storage material
+S08,sodium sulfide,storage material
+S09,lithium hydroxide,storage material
+A01,strontium chloride,storage material
+S20,strontium chloride,storage material
+G01,ammonia,storage material
+A01,ammonia,working fluid
+G02,methane,storage material
+G03,methane,storage material
+G04,sulfur trioxide,storage material
+P03,sodium hydroxide,storage material
+S10,lithium chloride,storage material
+L05,lithium chloride,storage material
+L07,lithium chloride,storage material
+X07,lithium chloride,storage material
+X08,lithium chloride,storage material
+X09,lithium chloride,storage material
+X10,lithium chloride,storage material
+X11,lithium chloride,storage material
+X12,lithium chloride,storage material
+S11,lithium bromide,storage material
+L01,lithium bromide,storage material
+L02,lithium bromide,storage material
+L06,lithium bromide,storage material
+L08,lithium bromide,storage material
+S12,calcium chloride,storage material
+S23,calcium chloride,storage material
+L03,calcium chloride,storage material
+L04,calcium chloride,storage material
+X01,calcium chloride,storage material
+X02,calcium chloride,storage material
+X03,calcium chloride,storage material
+X04,calcium chloride,storage material
+X05,calcium chloride,storage material
+X06,calcium chloride,storage material
+S13,lanthanum chloride,storage material
+S14,potassium aluminum sulfate,storage material
+S15,copper(II) chloride,storage material
+S16,cobalt(II) chloride,storage material
+S21,aluminum sulfate,storage material
+S22,calcium bromide,storage material
+S24,cerium(IV) sulfate,storage material
+S25,potassium hydroxide,storage material
+S26,lanthanum nitrate,storage material
+S27,lithium nitrate,storage material
+S28,magnesium bromide,storage material
+S29,sodium thiosulfate,storage material
+S30,zinc nitrate,storage material
+H03,strontium hydroxide,storage material
+H04,barium hydroxide,storage material
+O04,barium peroxide,storage material
+O05,ferric oxide,storage material
+O06,"manganese(II,III) oxide",storage material
+L06,methanol,working fluid
+L07,methanol,working fluid
+L08,ethanol,working fluid

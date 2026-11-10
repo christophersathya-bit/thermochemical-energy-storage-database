@@ -1,0 +1,10 @@
+id,salt,transition,price_EUR_kg,price_EUR_MJ,LD50_mg_kg,price_note
+S06,K2CO3,0-1.5,1,1.67,1870,
+S07,MgCl2,2-6,0.18,0.14,3800,
+S08,Na2S,0.5-5,0.65,0.51,208,
+S10,LiCl,0-1,37,35.53,1629,
+S11,LiBr,0-1,37,55,1800,price of LiBr based on the price of LiCl (marked / in paper)
+S12,CaCl2,0-2,0.29,0.52,1940,
+S15,CuCl2,0-2,3,4.33,584,
+S13,LaCl3,3-7,,,2370,rare earth; no price given
+S14,KAl(SO4)2,0-3,,,6986,no price given
