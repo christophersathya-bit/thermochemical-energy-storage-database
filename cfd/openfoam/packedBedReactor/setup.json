@@ -2,7 +2,7 @@
   "case_json": "/home/claude/tces/cfd/python_1d_reactor/cases/caoh2_discharge.json",
   "wall": "isothermal",
   "source": "gas",
-  "q_W_m3": 13330.282866139794,
+  "q_W_m3": 13330.188468907421,
   "eps": 0.4,
   "dp": 0.002,
   "darcy_d": 210937499.99999994,
