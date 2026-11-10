@@ -57,10 +57,10 @@ class Params:
     dH: float = 106.8e3                # J/mol gas  Ca(OH)2 -> CaO + H2O, Schaube 2012 equilibrium fit
     dS: float = 137.2                  # J/mol/K    ln(p/bar) = -12845/T + 16.508  ->  T_eq(1 bar) = 505 C
     nu: float = 1.0                    # mol gas per mol reaction
-    A_d: float = 1.3945e4              # 1/s  discharge pre-exponential   (order of magnitude, verify)
-    Ea_d: float = 89.5e3               # J/mol
-    A_c: float = 1.9425e12             # 1/s  charge pre-exponential      (order of magnitude, verify)
-    Ea_c: float = 191.9e3              # J/mol
+    A_d: float = 1.3945e4              # 1/s  hydration, Schaube 2012 (checked; paper uses (p/peq-1)^0.83 and Avrami-type f(X))
+    Ea_d: float = 89.486e3             # J/mol, Schaube 2012
+    A_c: float = 1.9425e12             # 1/s  dehydration X<0.2, Schaube 2012 (checked; paper uses (1-p/peq)^3; simplified here)
+    Ea_c: float = 187.88e3             # J/mol, Schaube et al. 2012 dehydration X<0.2 (ScienceDirect, checked)
     # bed
     L: float = 0.20                    # m bed length
     D: float = 0.05                    # m bed diameter
