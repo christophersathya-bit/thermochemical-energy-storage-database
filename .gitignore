@@ -13,3 +13,4 @@ cfd/openfoam/packedBedReactor/log.*
 cfd/openfoam/packedBedReactor/0.orig/
 cfd/openfoam/packedBedReactor/postProcessing*/
 ml/results/surrogate_models.joblib
+explorer/explorer_body.html

@@ -13,6 +13,8 @@ carries its source and a verification status.
 | **All materials + thermophysical properties in one file** | [`data/thermophysical/materials_properties.csv`](data/thermophysical/materials_properties.csv) |
 | Same data as a database file (SQLite) | [`database/tces.db`](database/tces.db) |
 | References for the `ref_ids` codes | [`data/references.csv`](data/references.csv) |
+| **Interactive explorer and material finder** | [`explorer/index.html`](explorer/index.html) (download and open in a browser) |
+| Cost and hazard data | [`data/safety_cost/material_safety_cost.csv`](data/safety_cost/material_safety_cost.csv) |
 | **What every other file is** | [`FILE_GUIDE.md`](FILE_GUIDE.md) |
 
 ![Temperature vs energy density](figures/01_temperature_vs_volumetric_density.png)
@@ -266,6 +268,18 @@ Tables and values copied from the full text of ScienceDirect papers, one folder 
 | [`data/block2016/`](data/block2016/) | Block & Schmücker, *Solar Energy* 126 (2016) [R9] | Table 1: measured onset T and enthalpy of Co, Cu, Fe, Mn oxides |
 | [`data/sogutoglu2018/`](data/sogutoglu2018/) | Sögütoglu et al., *Applied Energy* 215 (2018) [R6] | Tables 2–3: K₂CO₃, MgCl₂, Na₂S energy density over cycles, power, stability |
 | [`data/literature_extra/`](data/literature_extra/) | LiOH kinetics, *Appl. Therm. Eng.* 298 (2026) [R19]; Zhang et al., *Energy* 239 (2022) [R20] | LiOH·H₂O (S09) and SrCl₂/NH₃ (A01) are now verified |
+
+### Interactive explorer and material finder
+
+[`explorer/index.html`](explorer/index.html) is a single offline web page (download it and open it in any browser):
+* **Explore**: filter by material group, temperature, verification status, hazard and price; scatter plot of storage temperature vs energy density (per m³ or per kg) with the 400–600 kWh/m³ target band; sortable table; a detail card per material with sources; side-by-side comparison of up to 4 materials.
+* **Find a material**: enter the heat-source temperature, the temperature the heat is needed at, open or closed system and an optional cost limit. The page lists the materials that can be charged with that heat, ranked by energy density, with warnings (deliquescence, hazards, poor cycling, unverified data, cost).
+
+It is rebuilt from the CSV files by `python scripts/build_explorer.py` (part of `run_all.py`).
+
+### Cost and safety data
+
+[`data/safety_cost/`](data/safety_cost/): bulk price (EUR/kg and EUR per kWh stored) and oral LD50 for 9 salt hydrates from Donkers et al. 2017, Table 3 (2017 prices), and the GHS signal word, pictograms and hazard statements of 48 compounds from PubChem (majority classification of ECHA notifications). They are joined to every material in `material_safety_cost.csv` and in `data/thermophysical/materials_properties.csv`. Prices for the other materials are not sourced yet.
 
 ### Adding data from manuscripts
 

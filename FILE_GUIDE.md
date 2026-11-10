@@ -10,6 +10,13 @@
 
 Open a CSV file on GitHub to see it as a table; use **Download raw file** (top right of the file view) to save it and open in Excel.
 
+## Interactive explorer
+
+| File | What it is |
+|---|---|
+| `explorer/index.html` | **Interactive explorer and material finder** (download, open in a browser) |
+| `explorer/template.html`, `scripts/build_explorer.py` | Page template and the script that fills it with the data |
+
 ## `data/` – inputs, sources and property tables
 
 | File | What it is |
@@ -26,6 +33,7 @@ Open a CSV file on GitHub to see it as a table; use **Download raw file** (top r
 | `data/thermophysical/cfd_bed_properties.csv` | Bed / solid properties used in the CFD |
 | `data/thermophysical/README.md` | Column definitions and data gaps of the property files |
 | `data/ntsoukpoe2014/`, `andre2016/`, `yan2015/`, `schaube2012/`, `block2016/`, `sogutoglu2018/`, `literature_extra/` | Tables copied from ScienceDirect papers (one folder per paper, each with a README giving the DOI) |
+| `data/safety_cost/` | Prices and LD50 (Donkers 2017), GHS hazards (PubChem), joined per material in `material_safety_cost.csv` |
 | `data/kiyabu2026/*.csv` | Tables 1–5, 7, 8 copied from Kiyabu et al., Mater. Horiz. 2026 (targets, prototypes, cooling pairs, class overview, salts, liquid pairs, composites) |
 
 ## `database/` – SQLite database
