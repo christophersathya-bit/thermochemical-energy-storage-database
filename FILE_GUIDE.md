@@ -4,8 +4,8 @@
 
 | File | What it is |
 |---|---|
-| [`data/tces_database.csv`](data/tces_database.csv) | **The thermochemical material database.** 65 materials, one row each: reaction, classification, ΔH, ΔS, temperatures, energy densities, cyclability, references, verification status |
-| [`data/thermophysical/materials_properties.csv`](data/thermophysical/materials_properties.csv) | **The same 65 materials + thermophysical properties** (molar mass, densities, heat capacity, conductivity note). Use this if you want everything in one file |
+| [`data/tces_database.csv`](data/tces_database.csv) | **The thermochemical material database.** 80 materials, one row each: reaction, classification, ΔH, ΔS, temperatures, energy densities, cyclability, references, verification status |
+| [`data/thermophysical/materials_properties.csv`](data/thermophysical/materials_properties.csv) | **The same 80 materials + thermophysical properties** (molar mass, densities, heat capacity, conductivity note). Use this if you want everything in one file |
 | [`database/tces.db`](database/tces.db) | The same data as an SQLite database (open with DB Browser for SQLite, Python, etc.) |
 
 Open a CSV file on GitHub to see it as a table; use **Download raw file** (top right of the file view) to save it and open in Excel.
@@ -16,7 +16,7 @@ Open a CSV file on GitHub to see it as a table; use **Download raw file** (top r
 |---|---|
 | `data/reactions_input.csv` | Input sheet the database is built from (edit this to add materials) |
 | `data/thermo_species.csv` | ΔfH°, S°, molar mass, density of 38 chemical species, with NIST-JANAF links |
-| `data/references.csv` | Full citation + DOI for every reference code (R1–R18) used in `ref_ids` |
+| `data/references.csv` | Full citation + DOI for every reference code (R1–R20) used in `ref_ids` |
 | `data/classification_summary.csv` | Number of materials, temperature and energy-density range per mechanism |
 | `data/verification_report.csv` | Cross-checks of database values against NIST and papers |
 | `data/thermophysical/species_properties.csv` | 38 species: M, density, ΔfH°, S°, Cp at 298 K |
@@ -25,6 +25,7 @@ Open a CSV file on GitHub to see it as a table; use **Download raw file** (top r
 | `data/thermophysical/class_property_ranges.csv` | Property ranges per material class |
 | `data/thermophysical/cfd_bed_properties.csv` | Bed / solid properties used in the CFD |
 | `data/thermophysical/README.md` | Column definitions and data gaps of the property files |
+| `data/ntsoukpoe2014/`, `andre2016/`, `yan2015/`, `schaube2012/`, `block2016/`, `sogutoglu2018/`, `literature_extra/` | Tables copied from ScienceDirect papers (one folder per paper, each with a README giving the DOI) |
 | `data/kiyabu2026/*.csv` | Tables 1–5, 7, 8 copied from Kiyabu et al., Mater. Horiz. 2026 (targets, prototypes, cooling pairs, class overview, salts, liquid pairs, composites) |
 
 ## `database/` – SQLite database

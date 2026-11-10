@@ -9,7 +9,7 @@ carries its source and a verification status.
 
 | What you need | File |
 |---|---|
-| **Thermochemical material database (65 materials)** | [`data/tces_database.csv`](data/tces_database.csv) |
+| **Thermochemical material database (80 materials)** | [`data/tces_database.csv`](data/tces_database.csv) |
 | **All materials + thermophysical properties in one file** | [`data/thermophysical/materials_properties.csv`](data/thermophysical/materials_properties.csv) |
 | Same data as a database file (SQLite) | [`database/tces.db`](database/tces.db) |
 | References for the `ref_ids` codes | [`data/references.csv`](data/references.csv) |
@@ -112,77 +112,92 @@ How to read them:
 
 ## Database
 
-**65 systems** with thermodynamic properties, energy densities, cyclability notes, main issues, references (DOIs)
+**80 systems** with thermodynamic properties, energy densities, cyclability notes, main issues, references (DOIs)
 and a **verification status for every entry**. Full cross-check report: [`docs/DATA_VERIFICATION.md`](docs/DATA_VERIFICATION.md).
 `ref_ids` lists the reference codes of each entry; the codes are resolved in [`data/references.csv`](data/references.csv).
 
-| id   | name                                                 | mechanism                |   T_operating_C | ED_grav_MJ_kg   | ED_vol_GJ_m3   | ED_vol_basis                       | status                  | ref_ids       |
-|:-----|:-----------------------------------------------------|:-------------------------|----------------:|:----------------|:---------------|:-----------------------------------|:------------------------|:--------------|
-| H01  | Calcium hydroxide                                    | Hydroxide dehydration    |             487 | 1.47            | 3.26           | crystal                            | ✅ NIST-JANAF            | R12;R3;R5     |
-| H02  | Magnesium hydroxide                                  | Hydroxide dehydration    |             262 | 1.4             | 3.27           | crystal                            | ✅ NIST-JANAF            | R12;R3;R7     |
-| C01  | Calcium carbonate (calcium looping)                  | Carbonate decarbonation  |             843 | 1.79            | 4.85           | crystal                            | ⚠️ NBS (not re-fetched) | R1;R12;R3;R10 |
-| C02  | Magnesium carbonate                                  | Carbonate decarbonation  |             396 | 1.39            | 4.11           | crystal                            | ✅ NIST-JANAF            | R12;R3        |
-| C03  | Strontium carbonate                                  | Carbonate decarbonation  |            1089 | 1.59            | 5.56           | crystal                            | ⚠️ NBS (not re-fetched) | R1;R12;R4     |
-| C04  | Barium carbonate                                     | Carbonate decarbonation  |            1308 | 1.39            | 5.97           | crystal                            | ⚠️ NBS (not re-fetched) | R1;R12;R4     |
-| O01  | Cobalt oxide                                         | Metal oxide redox        |            1063 | 0.82            | 4.99           | crystal                            | ✅ NIST-JANAF            | R12;R4;R9     |
-| O02  | Manganese oxide                                      | Metal oxide redox        |             959 | 0.21            | 0.96           | crystal                            | ⚠️ NBS (not re-fetched) | R1;R12;R4;R9  |
-| O03  | Copper oxide                                         | Metal oxide redox        |            1015 | 0.89            | 5.61           | crystal                            | ✅ NIST-JANAF            | R12;R4;R9     |
-| M01  | Magnesium hydride                                    | Metal hydride            |             303 | 2.89            | 4.2            | crystal                            | ✅ NIST-JANAF            | R12;R3        |
-| M02  | Calcium hydride                                      | Metal hydride            |            1114 | 4.31            | 7.33           | crystal                            | ⚠️ NBS (not re-fetched) | R1;R12;R4     |
-| S01  | Magnesium sulfate heptahydrate                       | Salt hydrate dehydration |             105 | 1.36            | 2.29           | crystal                            | ⚠️ NBS (not re-fetched) | R1;R12;R2;R18 |
-| S02  | Gypsum                                               | Salt hydrate dehydration |              87 | 0.61            | 1.41           | crystal                            | ⚠️ NBS (not re-fetched) | R1;R12;R2     |
-| S03  | Copper sulfate pentahydrate                          | Salt hydrate dehydration |             124 | 1.2             | 2.74           | crystal                            | ⚠️ NBS (not re-fetched) | R1;R12;R2     |
-| S04  | Sodium carbonate decahydrate                         | Salt hydrate dehydration |              91 | 1.86            | 2.72           | crystal                            | ⚠️ NBS (not re-fetched) | R1;R12;R2     |
-| S05  | Strontium bromide hexahydrate                        | Salt hydrate dehydration |              80 | –               | 2.6            | material                           | ✅ OA paper              | R18;R2;R11    |
-| S06  | Potassium carbonate sesquihydrate                    | Salt hydrate dehydration |              65 | 0.6             | 1.3            | crystal (open system, no porosity) | ✅ OA paper              | R13;R6;R18    |
-| S07  | Magnesium chloride hexahydrate                       | Salt hydrate dehydration |             104 | 1.24            | 1.93           | crystal (open system, no porosity) | ✅ OA paper              | R13;R18       |
-| S08  | Sodium sulfide pentahydrate                          | Salt hydrate dehydration |              82 | 1.77            | 2.79           | crystal (open system, no porosity) | ✅ OA paper              | R13;R6;R18    |
-| S09  | Lithium hydroxide monohydrate                        | Salt hydrate dehydration |             100 | 1.45            | 2.19           | –                                  | ❌ not verified          | R7            |
-| A01  | Strontium chloride ammoniate                         | Ammoniation              |              90 | 0.98            | –              | –                                  | ❌ not verified          | R11;R7        |
-| G01  | Ammonia dissociation                                 | Gas-phase reaction       |             500 | 2.7             | –              | crystal                            | ✅ NIST-JANAF            | R12;R3        |
-| G02  | Methane steam reforming                              | Gas-phase reaction       |             688 | 6.05            | –              | crystal                            | ✅ NIST-JANAF            | R12;R3        |
-| G03  | Methane dry reforming                                | Gas-phase reaction       |             691 | 4.12            | –              | crystal                            | ✅ NIST-JANAF            | R12;R3        |
-| G04  | Sulfur trioxide decomposition                        | Gas-phase reaction       |             779 | 1.24            | –              | crystal                            | ✅ NIST-JANAF            | R12;R3        |
-| P01  | Zeolite 13X - water                                  | Physical adsorption      |             180 | –               | 0.64           | system/bed                         | ⚠️ secondary citation   | R16;R18       |
-| P02  | Silica gel - water                                   | Physical adsorption      |              90 | –               | 0.18           | material (prototype)               | ⚠️ secondary citation   | R16           |
-| P03  | Sodium hydroxide - water                             | Liquid absorption        |              95 | –               | 0.58           | sorbent volume                     | ✅ OA paper              | R14           |
-| S10  | Lithium chloride monohydrate                         | Salt hydrate dehydration |              72 | 1.18            | 2.08           | crystal (open system, no porosity) | ✅ OA paper              | R13           |
-| S11  | Lithium bromide monohydrate                          | Salt hydrate dehydration |             110 | 0.75            | 2.01           | crystal (open system, no porosity) | ✅ OA paper              | R13           |
-| S12  | Calcium chloride dihydrate                           | Salt hydrate dehydration |             111 | 0.84            | 1.54           | crystal (open system, no porosity) | ✅ OA paper              | R13;R18       |
-| S13  | Lanthanum chloride heptahydrate                      | Salt hydrate dehydration |              73 | 0.66            | 1.48           | crystal (open system, no porosity) | ✅ OA paper              | R13           |
-| S14  | Potassium alum                                       | Salt hydrate dehydration |              63 | 0.63            | 1.39           | crystal (open system, no porosity) | ✅ OA paper              | R13           |
-| S15  | Copper chloride dihydrate                            | Salt hydrate dehydration |              59 | 0.69            | 1.74           | crystal (open system, no porosity) | ✅ OA paper              | R13           |
-| S16  | Cobalt chloride hexahydrate                          | Salt hydrate dehydration |              35 | –               | 1.79           | crystal (open system, no porosity) | ✅ OA paper              | R13           |
-| S17  | Copper sulfate pentahydrate (5->3)                   | Salt hydrate dehydration |              34 | 0.44            | 1.01           | crystal (open system, no porosity) | ✅ OA paper              | R13           |
-| S18  | Gypsum to hemihydrate                                | Salt hydrate dehydration |              32 | 0.46            | 1.07           | crystal (open system, no porosity) | ✅ OA paper              | R13           |
-| S19  | Strontium bromide monohydrate                        | Salt hydrate dehydration |             210 | 0.27            | –              | –                                  | ✅ OA paper              | R15           |
-| S20  | Strontium chloride hexahydrate                       | Salt hydrate dehydration |              28 | –               | 2.99           | crystal (open system, no porosity) | ✅ OA paper              | R18           |
-| L01  | LiBr-H2O absorption                                  | Liquid absorption        |              80 | –               | 0.4            | solution (ESD_ab)                  | ✅ OA paper              | R18           |
-| L02  | LiBr-H2O absorption (with crystallization)           | Liquid absorption        |              93 | –               | 1.4            | solution (ESD_ab)                  | ✅ OA paper              | R18           |
-| L03  | CaCl2-H2O absorption                                 | Liquid absorption        |              45 | –               | 0.43           | solution (ESD_ab)                  | ✅ OA paper              | R18           |
-| L04  | CaCl2-H2O absorption (with crystallization)          | Liquid absorption        |              54 | –               | 0.95           | solution (ESD_ab)                  | ✅ OA paper              | R18           |
-| L05  | LiCl-H2O absorption (with crystallization)           | Liquid absorption        |              66 | –               | 1.4            | solution (ESD_ab)                  | ✅ OA paper              | R18           |
-| L06  | LiBr-CH3OH absorption (with crystallization)         | Liquid absorption        |              75 | –               | 0.2            | solution (ESD_ab)                  | ✅ OA paper              | R18           |
-| L07  | LiCl-CH3OH absorption (with crystallization)         | Liquid absorption        |              75 | –               | 0.8            | solution (ESD_ab)                  | ✅ OA paper              | R18           |
-| L08  | LiBr-C2H5OH absorption (with crystallization)        | Liquid absorption        |              95 | –               | 0.2            | solution (ESD_ab)                  | ✅ OA paper              | R18           |
-| X01  | CaCl2 in Hollow silica                               | Salt in porous matrix    |              45 | 1.1             | 0.86           | bed                                | ✅ OA paper              | R18           |
-| X02  | CaCl2 in Ethylcellulose                              | Salt in porous matrix    |              20 | 2.1             | 0.4            | bed                                | ✅ OA paper              | R18           |
-| X03  | CaCl2 in SiO2 (Grace Davisil)                        | Salt in porous matrix    |              30 | 1.1             | 0.76           | bed                                | ✅ OA paper              | R18           |
-| X04  | CaCl2 in Silica-alumina                              | Salt in porous matrix    |              20 | 0.9             | 0.65           | bed                                | ✅ OA paper              | R18           |
-| X05  | CaCl2 in PHTS (plugged hexagonal templated silicate) | Salt in porous matrix    |              30 | 1.2             | –              | bed                                | ✅ OA paper              | R18           |
-| X06  | CaCl2 in MIL-101(Cr)                                 | Salt in porous matrix    |              30 | 1.6             | 1.0            | bed                                | ✅ OA paper              | R18           |
-| X07  | LiCl in UiO-66                                       | Salt in porous matrix    |              40 | 0.9             | –              | bed                                | ✅ OA paper              | R18           |
-| X08  | LiCl in Hollow silica                                | Salt in porous matrix    |              45 | 0.75            | 0.65           | bed                                | ✅ OA paper              | R18           |
-| X09  | LiCl in Hollow silica                                | Salt in porous matrix    |              60 | 0.63            | 0.52           | bed                                | ✅ OA paper              | R18           |
-| X10  | LiCl in MWCNT + PVA                                  | Salt in porous matrix    |              35 | 1.6             | 0.65           | bed                                | ✅ OA paper              | R18           |
-| X11  | LiCl in Expanded vermiculite                         | Salt in porous matrix    |              35 | 1.8             | 0.8            | bed                                | ✅ OA paper              | R18           |
-| X12  | LiCl in SiO2 (Fuji Type A)                           | Salt in porous matrix    |              40 | 1.1             | 0.6            | bed                                | ✅ OA paper              | R18           |
-| X13  | MgCl2 in Zeolite 13x                                 | Salt in porous matrix    |              62 | 1.2             | –              | bed                                | ✅ OA paper              | R18           |
-| X14  | SrBr2 in Hollow silica                               | Salt in porous matrix    |              45 | 0.69            | 0.63           | bed                                | ✅ OA paper              | R18           |
-| X15  | SrBr2 in Expanded vermiculite                        | Salt in porous matrix    |              30 | 1.6             | 0.38           | bed                                | ✅ OA paper              | R18           |
-| X16  | SrBr2 in MIL-101(Cr)                                 | Salt in porous matrix    |              30 | 1.35            | 0.84           | bed                                | ✅ OA paper              | R18           |
-| X17  | K2CO3 in Expanded vermiculite                        | Salt in porous matrix    |              30 | –               | 0.9            | bed                                | ✅ OA paper              | R18           |
-| P04  | KMF-2 (Al-MOF) - water                               | Physical adsorption      |              70 | –               | 1.19           | material                           | ⚠️ secondary citation   | R18           |
+| id   | name                                                 | mechanism                | T_operating_C   | ED_grav_MJ_kg   | ED_vol_GJ_m3   | ED_vol_basis                         | status                      | ref_ids       |
+|:-----|:-----------------------------------------------------|:-------------------------|:----------------|:----------------|:---------------|:-------------------------------------|:----------------------------|:--------------|
+| H01  | Calcium hydroxide                                    | Hydroxide dehydration    | 487             | 1.47            | 3.26           | crystal                              | ✅ NIST-JANAF                | R12;R3;R5     |
+| H02  | Magnesium hydroxide                                  | Hydroxide dehydration    | 262             | 1.4             | 3.27           | crystal                              | ✅ NIST-JANAF                | R12;R3;R7     |
+| C01  | Calcium carbonate (calcium looping)                  | Carbonate decarbonation  | 843             | 1.79            | 4.85           | crystal                              | ✅ NBS + ScienceDirect check | R1;R12;R3;R10 |
+| C02  | Magnesium carbonate                                  | Carbonate decarbonation  | 396             | 1.39            | 4.11           | crystal                              | ✅ NIST-JANAF                | R12;R3        |
+| C03  | Strontium carbonate                                  | Carbonate decarbonation  | 1089            | 1.59            | 5.56           | crystal                              | ✅ NBS + ScienceDirect check | R1;R12;R4     |
+| C04  | Barium carbonate                                     | Carbonate decarbonation  | 1308            | 1.39            | 5.97           | crystal                              | ✅ NBS + ScienceDirect check | R1;R12;R4     |
+| O01  | Cobalt oxide                                         | Metal oxide redox        | 1063            | 0.82            | 4.99           | crystal                              | ✅ NIST-JANAF                | R12;R4;R9     |
+| O02  | Manganese oxide                                      | Metal oxide redox        | 959             | 0.21            | 0.96           | crystal                              | ✅ NBS + ScienceDirect check | R1;R12;R4;R9  |
+| O03  | Copper oxide                                         | Metal oxide redox        | 1015            | 0.89            | 5.61           | crystal                              | ✅ NIST-JANAF                | R12;R4;R9     |
+| M01  | Magnesium hydride                                    | Metal hydride            | 303             | 2.89            | 4.2            | crystal                              | ✅ NIST-JANAF                | R12;R3        |
+| M02  | Calcium hydride                                      | Metal hydride            | 1114            | 4.31            | 7.33           | crystal                              | ⚠️ NBS (not re-fetched)     | R1;R12;R4     |
+| S01  | Magnesium sulfate heptahydrate                       | Salt hydrate dehydration | 105             | 1.36            | 2.29           | crystal                              | ✅ NBS + ScienceDirect check | R1;R12;R2;R18 |
+| S02  | Gypsum                                               | Salt hydrate dehydration | 87              | 0.61            | 1.41           | crystal                              | ✅ NBS + ScienceDirect check | R1;R12;R2     |
+| S03  | Copper sulfate pentahydrate                          | Salt hydrate dehydration | 124             | 1.2             | 2.74           | crystal                              | ⚠️ NBS (not re-fetched)     | R1;R12;R2     |
+| S04  | Sodium carbonate decahydrate                         | Salt hydrate dehydration | 91              | 1.86            | 2.72           | crystal                              | ⚠️ NBS (not re-fetched)     | R1;R12;R2     |
+| S05  | Strontium bromide hexahydrate                        | Salt hydrate dehydration | 80              | –               | 2.6            | material                             | ✅ OA paper                  | R18;R2;R11    |
+| S06  | Potassium carbonate sesquihydrate                    | Salt hydrate dehydration | 65              | 0.6             | 1.3            | crystal (open system, no porosity)   | ✅ OA paper                  | R13;R6;R18    |
+| S07  | Magnesium chloride hexahydrate                       | Salt hydrate dehydration | 104             | 1.24            | 1.93           | crystal (open system, no porosity)   | ✅ OA paper                  | R13;R18       |
+| S08  | Sodium sulfide pentahydrate                          | Salt hydrate dehydration | 82              | 1.77            | 2.79           | crystal (open system, no porosity)   | ✅ OA paper                  | R13;R6;R18    |
+| S09  | Lithium hydroxide monohydrate                        | Salt hydrate dehydration | 120             | 1.5             | 2.75           | crystal (paper: LiOH·H2O ~2.2 g/cm3) | ✅ ScienceDirect paper       | R19;R7        |
+| A01  | Strontium chloride ammoniate                         | Ammoniation              | 92              | 1.63            | –              | –                                    | ✅ ScienceDirect paper       | R20;R11       |
+| G01  | Ammonia dissociation                                 | Gas-phase reaction       | 500             | 2.69            | –              | crystal                              | ✅ NIST-JANAF                | R12;R3        |
+| G02  | Methane steam reforming                              | Gas-phase reaction       | 688             | 6.05            | –              | crystal                              | ✅ NIST-JANAF                | R12;R3        |
+| G03  | Methane dry reforming                                | Gas-phase reaction       | 691             | 4.12            | –              | crystal                              | ✅ NIST-JANAF                | R12;R3        |
+| G04  | Sulfur trioxide decomposition                        | Gas-phase reaction       | 779             | 1.24            | –              | crystal                              | ✅ NIST-JANAF                | R12;R3        |
+| P01  | Zeolite 13X - water                                  | Physical adsorption      | 180             | –               | 0.64           | system/bed                           | ⚠️ secondary citation       | R16;R18       |
+| P02  | Silica gel - water                                   | Physical adsorption      | 90              | –               | 0.18           | material (prototype)                 | ⚠️ secondary citation       | R16           |
+| P03  | Sodium hydroxide - water                             | Liquid absorption        | 95              | –               | 0.58           | sorbent volume                       | ✅ OA paper                  | R14           |
+| S10  | Lithium chloride monohydrate                         | Salt hydrate dehydration | 72              | 1.18            | 2.08           | crystal (open system, no porosity)   | ✅ OA paper                  | R13           |
+| S11  | Lithium bromide monohydrate                          | Salt hydrate dehydration | 110             | 0.75            | 2.01           | crystal (open system, no porosity)   | ✅ OA paper                  | R13           |
+| S12  | Calcium chloride dihydrate                           | Salt hydrate dehydration | 111             | 0.84            | 1.54           | crystal (open system, no porosity)   | ✅ OA paper                  | R13;R18       |
+| S13  | Lanthanum chloride heptahydrate                      | Salt hydrate dehydration | 73              | 0.66            | 1.48           | crystal (open system, no porosity)   | ✅ OA paper                  | R13           |
+| S14  | Potassium alum                                       | Salt hydrate dehydration | 63              | 0.63            | 1.39           | crystal (open system, no porosity)   | ✅ OA paper                  | R13           |
+| S15  | Copper chloride dihydrate                            | Salt hydrate dehydration | 59              | 0.69            | 1.74           | crystal (open system, no porosity)   | ✅ OA paper                  | R13           |
+| S16  | Cobalt chloride hexahydrate                          | Salt hydrate dehydration | 35              | –               | 1.79           | crystal (open system, no porosity)   | ✅ OA paper                  | R13           |
+| S17  | Copper sulfate pentahydrate (5->3)                   | Salt hydrate dehydration | 34              | 0.44            | 1.01           | crystal (open system, no porosity)   | ✅ OA paper                  | R13           |
+| S18  | Gypsum to hemihydrate                                | Salt hydrate dehydration | 32              | 0.46            | 1.07           | crystal (open system, no porosity)   | ✅ OA paper                  | R13           |
+| S19  | Strontium bromide monohydrate                        | Salt hydrate dehydration | 210             | 0.27            | –              | –                                    | ✅ OA paper                  | R15           |
+| S20  | Strontium chloride hexahydrate                       | Salt hydrate dehydration | 28              | –               | 2.99           | crystal (open system, no porosity)   | ✅ OA paper                  | R18           |
+| L01  | LiBr-H2O absorption                                  | Liquid absorption        | 80              | –               | 0.4            | solution (ESD_ab)                    | ✅ OA paper                  | R18           |
+| L02  | LiBr-H2O absorption (with crystallization)           | Liquid absorption        | 93              | –               | 1.4            | solution (ESD_ab)                    | ✅ OA paper                  | R18           |
+| L03  | CaCl2-H2O absorption                                 | Liquid absorption        | 45              | –               | 0.43           | solution (ESD_ab)                    | ✅ OA paper                  | R18           |
+| L04  | CaCl2-H2O absorption (with crystallization)          | Liquid absorption        | 54              | –               | 0.95           | solution (ESD_ab)                    | ✅ OA paper                  | R18           |
+| L05  | LiCl-H2O absorption (with crystallization)           | Liquid absorption        | 66              | –               | 1.4            | solution (ESD_ab)                    | ✅ OA paper                  | R18           |
+| L06  | LiBr-CH3OH absorption (with crystallization)         | Liquid absorption        | 75              | –               | 0.2            | solution (ESD_ab)                    | ✅ OA paper                  | R18           |
+| L07  | LiCl-CH3OH absorption (with crystallization)         | Liquid absorption        | 75              | –               | 0.8            | solution (ESD_ab)                    | ✅ OA paper                  | R18           |
+| L08  | LiBr-C2H5OH absorption (with crystallization)        | Liquid absorption        | 95              | –               | 0.2            | solution (ESD_ab)                    | ✅ OA paper                  | R18           |
+| X01  | CaCl2 in Hollow silica                               | Salt in porous matrix    | 45              | 1.1             | 0.86           | bed                                  | ✅ OA paper                  | R18           |
+| X02  | CaCl2 in Ethylcellulose                              | Salt in porous matrix    | 20              | 2.1             | 0.4            | bed                                  | ✅ OA paper                  | R18           |
+| X03  | CaCl2 in SiO2 (Grace Davisil)                        | Salt in porous matrix    | 30              | 1.1             | 0.76           | bed                                  | ✅ OA paper                  | R18           |
+| X04  | CaCl2 in Silica-alumina                              | Salt in porous matrix    | 20              | 0.9             | 0.65           | bed                                  | ✅ OA paper                  | R18           |
+| X05  | CaCl2 in PHTS (plugged hexagonal templated silicate) | Salt in porous matrix    | 30              | 1.2             | –              | bed                                  | ✅ OA paper                  | R18           |
+| X06  | CaCl2 in MIL-101(Cr)                                 | Salt in porous matrix    | 30              | 1.6             | 1.0            | bed                                  | ✅ OA paper                  | R18           |
+| X07  | LiCl in UiO-66                                       | Salt in porous matrix    | 40              | 0.9             | –              | bed                                  | ✅ OA paper                  | R18           |
+| X08  | LiCl in Hollow silica                                | Salt in porous matrix    | 45              | 0.75            | 0.65           | bed                                  | ✅ OA paper                  | R18           |
+| X09  | LiCl in Hollow silica                                | Salt in porous matrix    | 60              | 0.63            | 0.52           | bed                                  | ✅ OA paper                  | R18           |
+| X10  | LiCl in MWCNT + PVA                                  | Salt in porous matrix    | 35              | 1.6             | 0.65           | bed                                  | ✅ OA paper                  | R18           |
+| X11  | LiCl in Expanded vermiculite                         | Salt in porous matrix    | 35              | 1.8             | 0.8            | bed                                  | ✅ OA paper                  | R18           |
+| X12  | LiCl in SiO2 (Fuji Type A)                           | Salt in porous matrix    | 40              | 1.1             | 0.6            | bed                                  | ✅ OA paper                  | R18           |
+| X13  | MgCl2 in Zeolite 13x                                 | Salt in porous matrix    | 62              | 1.2             | –              | bed                                  | ✅ OA paper                  | R18           |
+| X14  | SrBr2 in Hollow silica                               | Salt in porous matrix    | 45              | 0.69            | 0.63           | bed                                  | ✅ OA paper                  | R18           |
+| X15  | SrBr2 in Expanded vermiculite                        | Salt in porous matrix    | 30              | 1.6             | 0.38           | bed                                  | ✅ OA paper                  | R18           |
+| X16  | SrBr2 in MIL-101(Cr)                                 | Salt in porous matrix    | 30              | 1.35            | 0.84           | bed                                  | ✅ OA paper                  | R18           |
+| X17  | K2CO3 in Expanded vermiculite                        | Salt in porous matrix    | 30              | –               | 0.9            | bed                                  | ✅ OA paper                  | R18           |
+| P04  | KMF-2 (Al-MOF) - water                               | Physical adsorption      | 70              | –               | 1.19           | material                             | ⚠️ secondary citation       | R18           |
+| S21  | Aluminium sulfate octadecahydrate                    | Salt hydrate dehydration | –               | 0.83            | 1.41           | crystal                              | ✅ ScienceDirect paper       | R2            |
+| S22  | Calcium bromide hexahydrate                          | Salt hydrate dehydration | –               | 1.15            | 2.63           | crystal                              | ✅ ScienceDirect paper       | R2            |
+| S23  | Calcium chloride hexahydrate                         | Salt hydrate dehydration | –               | 1.26            | 2.16           | crystal                              | ✅ ScienceDirect paper       | R2            |
+| S24  | Cerium sulfate tetrahydrate                          | Salt hydrate dehydration | –               | 0.14            | 0.56           | crystal                              | ✅ ScienceDirect paper       | R2            |
+| S25  | Potassium hydroxide dihydrate                        | Salt hydrate dehydration | –               | 0.52            | 1.0            | crystal                              | ✅ ScienceDirect paper       | R2            |
+| S26  | Lanthanum nitrate hexahydrate                        | Salt hydrate dehydration | –               | 0.6             | 1.41           | crystal                              | ✅ ScienceDirect paper       | R2            |
+| S27  | Lithium nitrate trihydrate                           | Salt hydrate dehydration | –               | 1.35            | 2.09           | crystal                              | ✅ ScienceDirect paper       | R2            |
+| S28  | Magnesium bromide hexahydrate                        | Salt hydrate dehydration | –               | 0.5             | 0.99           | crystal                              | ✅ ScienceDirect paper       | R2            |
+| S29  | Sodium thiosulfate pentahydrate                      | Salt hydrate dehydration | –               | 1.13            | 1.9            | crystal                              | ✅ ScienceDirect paper       | R2            |
+| S30  | Zinc nitrate hexahydrate                             | Salt hydrate dehydration | –               | 1.42            | 2.94           | crystal                              | ✅ ScienceDirect paper       | R2            |
+| H03  | Strontium hydroxide                                  | Hydroxide dehydration    | 755             | 0.73            | –              | –                                    | ✅ ScienceDirect paper       | R4            |
+| H04  | Barium hydroxide                                     | Hydroxide dehydration    | 1005            | 0.55            | –              | –                                    | ✅ ScienceDirect paper       | R4            |
+| O04  | Barium peroxide                                      | Metal oxide redox        | 880             | 0.43            | –              | –                                    | ✅ ScienceDirect paper       | R4            |
+| O05  | Iron oxide                                           | Metal oxide redox        | 1360            | 0.49            | –              | –                                    | ✅ ScienceDirect paper       | R4;R9         |
+| O06  | Manganese(II,III) oxide                              | Metal oxide redox        | 1700            | 0.85            | –              | –                                    | ✅ ScienceDirect paper       | R4            |
 
 **Verification status**
 
@@ -219,7 +234,7 @@ Notes
 
 | File | Content |
 |---|---|
-| [`materials_properties.csv`](data/thermophysical/materials_properties.csv) | all 65 materials: molar mass, densities, Cp, ΔH, ΔS, temperatures, energy densities, volume change, DRH, sources |
+| [`materials_properties.csv`](data/thermophysical/materials_properties.csv) | all 80 materials: molar mass, densities, Cp, ΔH, ΔS, temperatures, energy densities, volume change, DRH, sources |
 | [`species_properties.csv`](data/thermophysical/species_properties.csv) | 38 chemical species: M, density, ΔfH°, S°, Cp(298 K) |
 | [`species_cp_vs_T.csv`](data/thermophysical/species_cp_vs_T.csv) | Cp, S, H−H298 at 298–1200 K from NIST-JANAF |
 | [`gas_properties.csv`](data/thermophysical/gas_properties.csv) | N₂/steam density, cp, viscosity, conductivity, Pr at 20–600 °C |
@@ -237,6 +252,20 @@ overview (Table 4), crystal-level salt properties (Table 5), liquid working pair
 (Table 8). In the SQLite database they are the tables `kiyabu2026_*`. From this paper the database gained SrCl₂·6H₂O,
 8 liquid absorption pairs, 17 composites and KMF-2; SrBr₂·6H₂O is now verified; and heat-release temperature,
 volume change, deliquescence humidity and bed-level energy density were added where reported.
+
+### Data read on ScienceDirect (institutional access, November 2026)
+
+Tables and values copied from the full text of ScienceDirect papers, one folder per paper:
+
+| Folder | Paper | What was taken |
+|---|---|---|
+| [`data/ntsoukpoe2014/`](data/ntsoukpoe2014/) | N'Tsoukpoe et al., *Applied Energy* 124 (2014) [R2] | Tables 2–3: 17 salt hydrates (ΔHr, density, kWh/kg, kWh/m³, net values) → new entries S21–S30 |
+| [`data/andre2016/`](data/andre2016/) | André et al., *RSER* 64 (2016) [R4] | Tables 2–8: turning temperatures and energy densities of sulfates, carbonates, hydroxides, oxides; measured onsets → new entries H03, H04, O04–O06 and cross-checks |
+| [`data/yan2015/`](data/yan2015/) | Yan et al., *RSER* 43 (2015) [R7] | Tables 1–7: salt hydrates, storage materials, reaction data (cross-checks) |
+| [`data/schaube2012/`](data/schaube2012/) | Schaube et al., *Thermochim. Acta* 538 (2012) [R5] | Ca(OH)₂ equilibrium and full kinetic equations (used in the CFD) |
+| [`data/block2016/`](data/block2016/) | Block & Schmücker, *Solar Energy* 126 (2016) [R9] | Table 1: measured onset T and enthalpy of Co, Cu, Fe, Mn oxides |
+| [`data/sogutoglu2018/`](data/sogutoglu2018/) | Sögütoglu et al., *Applied Energy* 215 (2018) [R6] | Tables 2–3: K₂CO₃, MgCl₂, Na₂S energy density over cycles, power, stability |
+| [`data/literature_extra/`](data/literature_extra/) | LiOH kinetics, *Appl. Therm. Eng.* 298 (2026) [R19]; Zhang et al., *Energy* 239 (2022) [R20] | LiOH·H₂O (S09) and SrCl₂/NH₃ (A01) are now verified |
 
 ### Adding data from manuscripts
 
@@ -363,7 +392,8 @@ Ortiz et al., *RSER* 113 (2019) 109252 · Solé et al., *RSER* 47 (2015) 386–3
 NIST-JANAF tables (Chase 1998) · Donkers et al., *Applied Energy* 199 (2017) 45–68 (open access) ·
 Fumey et al., *Applied Energy* 335 (2023) 120755 · Stengler et al. (DLR manuscript) · Abohamzeh & Frey, *Energies* 15 (2022) 5944 ·
 André, Abanades & Cassayre, *J. Solid State Chem.* 253 (2017) 6–14 ·
-Kiyabu, Shkatulov, Ahmed, Greene, Huinink & Siegel, *Mater. Horiz.* 13 (2026) 2087–2126.
+Kiyabu, Shkatulov, Ahmed, Greene, Huinink & Siegel, *Mater. Horiz.* 13 (2026) 2087–2126 ·
+LiOH hydration/dehydration kinetics, *Appl. Therm. Eng.* 298 (2026) 131040 · Zhang et al., *Energy* 239 (2022) 122308.
 
 ## License
 
