@@ -5,7 +5,7 @@ Every value has a source column. **An empty cell means no sourced value exists y
 
 | File | Rows | Content |
 |---|---|---|
-| `materials_properties.csv` | 65 | One row per storage material: reaction, molar masses, densities (discharged / charged form), Cp at 298 K, thermal-conductivity note, ΔH, ΔS, equilibrium and operating temperatures, energy densities (per kg, per m³ and its basis, per m³ of bed), volume change, deliquescence humidity, cyclability, references, verification |
+| `materials_properties.csv` | 80 | One row per storage material: reaction, molar masses, densities (discharged / charged form), Cp at 298 K, thermal-conductivity note, ΔH, ΔS, equilibrium and operating temperatures, energy densities (per kg, per m³ and its basis, per m³ of bed), volume change, deliquescence humidity, cyclability, references, verification |
 | `species_properties.csv` | 38 | One row per chemical species: phase, molar mass, density, ΔfH°, S°, Cp(298 K), with source URLs |
 | `species_cp_vs_T.csv` | 163 | Cp, S and H−H(298) at 298–1200 K for the 24 species in NIST-JANAF (values copied from the tables) |
 | `gas_properties.csv` | 38 | Density, cp, viscosity, thermal conductivity and Pr of N₂ / steam mixtures at 20–600 °C, 1 bar |
