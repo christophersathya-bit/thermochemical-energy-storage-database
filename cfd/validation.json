@@ -3,7 +3,7 @@
     [
       "V1",
       "energy balance, caoh2_charge",
-      "0.325 %",
+      "0.333 %",
       "\u2264 1.0 %",
       "PASS"
     ],
@@ -31,7 +31,7 @@
     [
       "V2",
       "grid 80->160 cells, T_out_max_C",
-      "-0.00922 %",
+      "-0.00925 %",
       "\u2264 2.0 %",
       "PASS"
     ],
@@ -108,7 +108,7 @@
     [
       "O3",
       "energy conservation, adiabatic (base mesh)",
-      "-0.0831 %",
+      "-0.0824 %",
       "\u2264 1.0 %",
       "PASS"
     ],
@@ -136,24 +136,24 @@
   ],
   "grid_convergence": {
     "40": {
-      "time_to_90pct_conversion_s": 1440.3515985110953,
-      "T_out_max_C": 447.79858726618954,
-      "peak_total_power_W": 253.97146266936102
+      "time_to_90pct_conversion_s": 1439.8871250575444,
+      "T_out_max_C": 447.8265172904962,
+      "peak_total_power_W": 254.00474899692054
     },
     "80": {
-      "time_to_90pct_conversion_s": 1437.5193258937643,
-      "T_out_max_C": 447.9082004479218,
-      "peak_total_power_W": 253.85613757443787
+      "time_to_90pct_conversion_s": 1437.061096396674,
+      "T_out_max_C": 447.93619946132253,
+      "peak_total_power_W": 253.89431907614005
     },
     "160": {
-      "time_to_90pct_conversion_s": 1436.065153301101,
-      "T_out_max_C": 447.9495124448475,
-      "peak_total_power_W": 254.3767211736354
+      "time_to_90pct_conversion_s": 1435.6063263878984,
+      "T_out_max_C": 447.9776217804945,
+      "peak_total_power_W": 254.41710018512092
     }
   },
   "equilibrium_limit": {
     "T_eq_C": 473.89567399346834,
-    "T_max_C": 472.92572298904736
+    "T_max_C": 472.92569782644273
   },
   "openfoam": {
     "coarse": {
@@ -165,10 +165,10 @@
       "mass_flow_in_kg_s": 0.000161698754736,
       "mass_flow_out_kg_s": 0.000161702924256,
       "mass_balance_error_pct": 0.002578572733473341,
-      "heat_source_W": 5.234789840317335,
+      "heat_source_W": 5.234752770610867,
       "heat_to_gas_W": 5.232228645120303,
-      "heat_through_wall_W": 0.002561195197031907,
-      "energy_balance_error_pct": -0.04892641873234487,
+      "heat_through_wall_W": 0.002524125490563911,
+      "energy_balance_error_pct": -0.04821861893335145,
       "T_inlet_C": 399.9999999999999,
       "T_outlet_bulk_C": 421.96359534888427,
       "T_max_C": 421.97128
@@ -182,10 +182,10 @@
       "mass_flow_in_kg_s": 0.00016170460138799998,
       "mass_flow_out_kg_s": 0.00016170742356479996,
       "mass_balance_error_pct": 0.0017452668481639662,
-      "heat_source_W": 5.234789840317335,
+      "heat_source_W": 5.234752770610867,
       "heat_to_gas_W": 5.230439017097848,
-      "heat_through_wall_W": 0.004350823219486877,
-      "energy_balance_error_pct": -0.08311361778036783,
+      "heat_through_wall_W": 0.004313753513018881,
+      "energy_balance_error_pct": -0.08240606007674914,
       "T_inlet_C": 400.0,
       "T_outlet_bulk_C": 421.96107477085786,
       "T_max_C": 421.97685
@@ -199,10 +199,10 @@
       "mass_flow_in_kg_s": 0.00016170777639288003,
       "mass_flow_out_kg_s": 0.0001617075637416,
       "mass_balance_error_pct": -0.00013150343463054452,
-      "heat_source_W": 5.234789840317335,
+      "heat_source_W": 5.234752770610867,
       "heat_to_gas_W": 5.225820534339545,
-      "heat_through_wall_W": 0.00896930597779022,
-      "energy_balance_error_pct": -0.17134032599953425,
+      "heat_through_wall_W": 0.008932236271322225,
+      "energy_balance_error_pct": -0.17063339307005862,
       "T_inlet_C": 399.9999999999999,
       "T_outlet_bulk_C": 421.95428699173203,
       "T_max_C": 421.98741000000007
