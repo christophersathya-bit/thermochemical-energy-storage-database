@@ -1,0 +1,6 @@
+reaction,solid_density_kg_m3,theoretical_ED_GJ_m3
+MgSO4·7H2O(s) <=> MgSO4(s) + 7H2O(g),1680,2.8
+Al2(SO4)3·18H2O(s) <=> Al2(SO4)3(s) + 18H2O(g),1690,2.75
+MgCl2·6H2O(s) <=> MgCl2·H2O(s) + 5H2O(g),1560,2.48
+CaCl2·2H2O(s) <=> CaCl2(s) + 2H2O(g),1710,1.44
+Heating up water (dT 60 K),,0.25
