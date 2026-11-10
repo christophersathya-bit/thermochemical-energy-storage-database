@@ -57,6 +57,8 @@ def main():
             nbs = [sname for sname, _ in left + right if not str(sp.loc[sname, "source"]).startswith("NIST-JANAF")]
             d["verification"] = ("computed from NIST-JANAF" if not nbs else
                                  "computed; NBS 1982 values not yet re-fetched for " + ", ".join(sorted(set(nbs))))
+            if nbs and "ScienceDirect" in str(r.get("verification", "")):
+                d["verification"] += "; result cross-checked against ScienceDirect paper (see notes)"
             d.update(
                 dH_kJ_mol_rxn=dH, dS_J_molK_rxn=dS, nu_gas=gas_nu,
                 dH_kJ_per_mol_gas=dH / gas_nu if gas_nu else np.nan,
