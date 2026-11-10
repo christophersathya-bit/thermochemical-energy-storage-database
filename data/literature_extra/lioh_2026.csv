@@ -1,0 +1,7 @@
+quantity,value,unit,location
+reaction,LiOH(s) + H2O(g) <=> LiOH·H2O(s),,Eq. (1)
+reaction temperature range,60-120,C,Section 2.1
+reaction enthalpy,64,kJ/mol H2O,Section 2.1
+theoretical energy density,2.7,MJ/kg (anhydrous LiOH basis),Section 2.1
+theoretical energy density,1.4-1.6,MJ/kg,Section 2.1
+theoretical volumetric energy density,2.5-3.0,GJ/m3 (paper assumes LiOH·H2O density ~2.2 g/cm3),Section 2.1
