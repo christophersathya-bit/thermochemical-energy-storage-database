@@ -1,0 +1,21 @@
+chemical,quantity,value_C,atmosphere
+Co3O4,reduction onset,890,20% O2
+Co3O4,reduction onset,772,Ar
+Co3O4,re-oxidation onset,875,
+CuO,reduction onset,1018,20% O2
+CuO,reduction onset,958,Ar
+CuO,re-oxidation onset,1009,
+Fe2O3,reduction onset,1361,20% O2
+Fe2O3,reduction onset,1145,Ar
+Fe2O3,re-oxidation onset,1345,
+Mn2O3,reduction onset,903,20% O2
+Mn2O3,reduction onset,710,Ar
+Mn2O3,re-oxidation onset,733,
+BaCO3,calcination onset,1025,Ar
+BaCO3,carbonation onset,none,
+CaCO3,calcination onset,807,20% CO2
+CaCO3,calcination onset,670,Ar
+CaCO3,carbonation onset,766,
+SrCO3,calcination onset,1122,20% CO2
+SrCO3,calcination onset,873,Ar
+SrCO3,carbonation onset,1006,

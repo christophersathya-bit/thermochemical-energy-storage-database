@@ -1,0 +1,13 @@
+category,chemicals,T_transition_C
+Oxides,BaO2/BaO,775
+Oxides,Co3O4/Co2O3,790
+Oxides,Mn2O3/Mn3O4,820
+Oxides,CuO/Cu2O,1025
+Oxides,Fe2O3/Fe3O4,1290
+Oxides,Mn3O4/MnO,1575
+Carbonates,CaCO3/CaO,785
+Carbonates,SrCO3/SrO,1090
+Carbonates,BaCO3/BaO,1365
+Hydroxides,Ca(OH)2/CaO,445
+Hydroxides,Sr(OH)2/SrO,625
+Hydroxides,Ba(OH)2/BaO,820
